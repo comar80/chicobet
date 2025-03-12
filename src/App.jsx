@@ -1,6 +1,10 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./components/Home";
+import Footer from "./components/Footer";
+import Bets from "./components/Bets";
+import SubmittedForm from "./components/SubmittedForm";
 import "./App.css";
 
 import {register} from 'swiper/element/bundle'
@@ -12,10 +16,15 @@ import 'swiper/css/scrollbar'
 
 function App() {
   return (
-    <div>
-      <Header/>
-      <Home/>
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/bets" element={<Bets />} />
+        <Route path="/success" element={<SubmittedForm />} /> 
+      </Routes>
+      <Footer />
+    </>
   );
 }
 

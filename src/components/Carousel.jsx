@@ -47,8 +47,6 @@ function Carousel() {
                 pagination={{
                     clickable: true
                 }}
-
-                navigation={true}
                 modules={[Pagination, Navigation]}
             >
                 {photos.map((photo, index) => (

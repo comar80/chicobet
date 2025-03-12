@@ -10,7 +10,7 @@ function Home() {
                 Nome
             </h2>
             <p>
-                Nome/Descrição do bebê/Mensagem de boas-vindas
+                Descrição/Mensagem de boas-vindas
             </p>
             <Carousel />
             <h2>Atualizações</h2>
