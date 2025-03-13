@@ -5,7 +5,7 @@ function Footer() {
         <footer>
             <nav>
                 <ul>
-                    <li><a href="https://github.com/comar80">©omar80</a></li>
+                    <li><a href="https://github.com/comar80">© comar80</a></li>
                 </ul>
             </nav>
         </footer>
