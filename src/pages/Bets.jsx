@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Bets() {
-    const location = useLocation();
 
-    const { peso = "", tamanho = "", data = "", sexo = "" } = location.state || {};
+    const { peso = "", tamanho = "", data = "", sexo = "" } = JSON.parse(localStorage.getItem("bet")) || {};
 
     const [pesoInput, setPeso] = useState(peso);
     const [tamanhoInput, setTamanho] = useState(tamanho);
@@ -15,14 +14,12 @@ function Bets() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Handle the form submission, navigate to success page
+        const betData = { peso: pesoInput, tamanho: tamanhoInput, data: dataInput, sexo: sexoInput };
+        localStorage.setItem("bet", JSON.stringify(betData));
+
         navigate("/success", {
             state: {
-                message: "Form submitted successfully!",
-                peso: pesoInput,
-                tamanho: tamanhoInput,
-                data: dataInput,
-                sexo: sexoInput
+                message: "Aposta concluída!",
             },
         });
     };

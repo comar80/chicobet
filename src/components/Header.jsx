@@ -1,19 +1,37 @@
 import React from "react";
 import { useAuth } from "../context/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
 
     const { user, logout } = useAuth();
+    const navigate = useNavigate();
+
+    const handleBetsClick = () => {
+        const betData = localStorage.getItem("bet");
+
+        if (betData) {
+            navigate("/success");
+        } else {
+            navigate("/bets");
+        }
+    };
+
+    const handleLogout = () => {
+        navigate("/");
+        setTimeout(() => {
+            logout();
+        }, 10);
+    };
 
     return (
         <header>
             <nav>
                 <ul>
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/bets">Apostas</Link></li>
+                    <li><a onClick={handleBetsClick}>Apostas</a></li>
                     {user ? (
-                        <li><Link onClick={logout}>Logout</Link></li>
+                        <li><a onClick={handleLogout}>Logout</a></li>
                     ) : (
                         <li><Link to="/login">Login</Link></li>
                     )}

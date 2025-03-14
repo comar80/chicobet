@@ -6,6 +6,7 @@ function SubmittedForm() {
     const navigate = useNavigate();
 
     const { message, peso, tamanho, data, sexo } = location.state || {};
+    const betData = JSON.parse(localStorage.getItem("bet"));
     const [showMessage, setShowMessage] = useState(true);
 
     useEffect(() => {
@@ -17,9 +18,7 @@ function SubmittedForm() {
     }, []);
 
     const handleEditClick = () => {
-        navigate("/bets", {
-            state: { peso, tamanho, data, sexo }
-        });
+        navigate("/bets");
     };
 
     return (
@@ -30,10 +29,10 @@ function SubmittedForm() {
                 </div>
             )}
             <h2>Suas Apostas</h2>
-            {peso && <p><strong>Peso:</strong> {peso} kg</p>}
-            {tamanho && <p><strong>Tamanho:</strong> {tamanho} cm</p>}
-            {data && <p><strong>Data:</strong> {data}</p>}
-            {sexo && <p><strong>Sexo:</strong> {sexo}</p>}
+            {betData.peso && <p><strong>Peso:</strong> {betData.peso} kg</p>}
+            {betData.tamanho && <p><strong>Tamanho:</strong> {betData.tamanho} cm</p>}
+            {betData.data && <p><strong>Data:</strong> {betData.data}</p>}
+            {betData.sexo && <p><strong>Sexo:</strong> {betData.sexo}</p>}
 
             <button onClick={handleEditClick}>Edit</button>
         </main>

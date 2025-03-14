@@ -25,13 +25,13 @@ function Login() {
     };
 
     return (
-        <main>
+        <main className="login-page">
             <h2>Login</h2>
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleLogin} className="login-form">
                 <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 <input type="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 <button type="submit">Login</button>
-                <a href="/register">Registre aqui</a>
+                <a href="/register">Cadastre-se aqui</a>
             </form>
         </main>
     );
