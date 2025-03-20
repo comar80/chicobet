@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import Bets from "./pages/Bets";
+import BetEdit from "./pages/BetEdit";
 import SubmittedForm from "./pages/SubmittedForm";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
@@ -32,7 +33,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={ <Home /> } />
         <Route path="/bets" element={<PrivateRoute>  <Bets /> </PrivateRoute> }/>
-        <Route path="/success" element={<PrivateRoute> <SubmittedForm /> </PrivateRoute>} />
+        <Route path="/bet-edit" element={ <BetEdit /> }/>
+        <Route path="/success" element={ <SubmittedForm /> } />
       </Routes>
       <Footer />
     </>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-
+import axios from "axios";
 
 function Login() {
     const { login } = useAuth();
@@ -9,19 +9,27 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
 
-        const userData = JSON.parse(localStorage.getItem("user"));
+        try {
+            const response = await axios.post("http://localhost:5000/api/login", {
+                email,
+                password
+            });
 
-        if (!userData || userData.email !== email || userData.password !== password) {
+            const { token } = response.data;
+
+            localStorage.setItem("token", token);
+
+            alert("Login bem sucedido!");
+            login(token);
+            navigate("/");
+
+        } catch (error) {
+            console.error("Erro ao fazer login:", error);
             alert("Email ou senha inválidos!");
-            return;
         }
-
-        alert("Login bem sucedido!");
-        login(userData);
-        navigate("/");
     };
 
     return (

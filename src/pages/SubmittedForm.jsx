@@ -1,24 +1,52 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
 function SubmittedForm() {
     const location = useLocation();
     const navigate = useNavigate();
-
-    const { message, peso, tamanho, data, sexo } = location.state || {};
-    const betData = JSON.parse(localStorage.getItem("bet"));
+    const [betData, setBetData] = useState(null);
     const [showMessage, setShowMessage] = useState(true);
 
+    const { message } = location.state || {};
+
+    const token = localStorage.getItem("token");
+    const decodedToken = token ? jwtDecode(token) : null;
+    const userId = decodedToken?.userId;
+
     useEffect(() => {
+        if (!token) {
+            alert("Você precisa estar logado!");
+            navigate("/login");
+            return;
+        }
+
+        const fetchBetData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5000/api/bets/user/${userId}`);
+
+                setBetData(response.data);
+            } catch (error) {
+                console.error("Erro ao buscar dados da aposta:", error);
+                alert("Falha ao carregar dados da aposta.");
+            }
+        };
+
+        fetchBetData();
+
         const timer = setTimeout(() => {
             setShowMessage(false);
         }, 3000);
 
         return () => clearTimeout(timer);
-    }, []);
+    }, [navigate, token, userId]);
 
     const handleEditClick = () => {
-        navigate("/bets");
+        if (betData) {
+            navigate("/bet-edit", { state: { bet: betData } });
+            console.log("betData:", betData);
+        }
     };
 
     return (
@@ -29,10 +57,16 @@ function SubmittedForm() {
                 </div>
             )}
             <h2>Suas Apostas</h2>
-            {betData.peso && <p><strong>Peso:</strong> {betData.peso} kg</p>}
-            {betData.tamanho && <p><strong>Tamanho:</strong> {betData.tamanho} cm</p>}
-            {betData.data && <p><strong>Data:</strong> {betData.data}</p>}
-            {betData.sexo && <p><strong>Sexo:</strong> {betData.sexo}</p>}
+            {betData ? (
+                <>
+                    {betData.weight && <p><strong>Peso:</strong> {betData.weight} kg</p>}
+                    {betData.size && <p><strong>Tamanho:</strong> {betData.size} cm</p>}
+                    {betData.date && <p><strong>Data:</strong> {betData.date}</p>}
+                    {betData.gender && <p><strong>Sexo:</strong> {betData.gender}</p>}
+                </>
+            ) : (
+                <p>Carregando seus dados...</p>
+            )}
 
             <button onClick={handleEditClick}>Edit</button>
         </main>

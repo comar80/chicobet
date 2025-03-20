@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Register() {
     const [name, setName] = useState("");
@@ -8,15 +9,22 @@ function Register() {
 
     const navigate = useNavigate();
 
-    const handleRegister = (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
 
         const userData = { name, email, password };
-        localStorage.setItem("user", JSON.stringify(userData));
-
-        alert("Usuário registrado!");
-
-        navigate("/login");
+        try {
+            const response = await axios.post("http://localhost:5000/api/users", userData, {
+                headers: { "Content-Type": "application/json" },
+            });
+    
+            console.log("Usuário cadastrado:", response.data);
+            navigate("/login");
+    
+        } catch (error) {
+            console.error("Erro ao cadastrar usuário:", error.response?.data || error.message);
+            alert("Falha ao salvar usuário.");
+        }
     };
 
     return (

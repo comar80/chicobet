@@ -1,62 +1,69 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import {jwtDecode} from "jwt-decode";
 
-function Bets() {
+function BetEdit() {
 
     const navigate = useNavigate();
+    const location = useLocation();
 
     const [pesoInput, setPeso] = useState("");
     const [tamanhoInput, setTamanho] = useState("");
     const [dataInput, setData] = useState("");
     const [sexoInput, setSexo] = useState("");
+    const betId = location.state?.bet.id;
+    console.log("betId:", betId);
 
     const token = localStorage.getItem("token");
     const decodedToken = token ? jwtDecode(token) : null;
     const userId = decodedToken?.userId;
 
     useEffect(() => {
-        if (!userId) {
-            alert("Você precisa estar logado para apostar!");
+        if (!token) {
+            alert("Você precisa estar logado!");
             navigate("/login");
             return;
         }
 
-        const fetchBet = async () => {
+        const fetchBetData = async () => {
             try {
                 const response = await axios.get(`http://localhost:5000/api/bets/user/${userId}`);
-                
+
                 if (response.data) {
-                    navigate("/success", { state: { bet: response.data } });
+                    setPeso(response.data.weight || "");
+                    setTamanho(response.data.size || "");
+                    setData(response.data.date || "");
+                    setSexo(response.data.gender || "");
                 }
             } catch (error) {
-                console.error("Nenhuma aposta encontrada", error.response?.data || error.message);
+                console.error("Erro ao buscar dados da aposta:", error);
+                alert("Falha ao carregar dados da aposta.");
             }
         };
 
-        fetchBet();
-    }, [userId, navigate]);
+        fetchBetData();
+    }, [navigate, token, userId]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const betData = { weight: pesoInput, size: tamanhoInput, date: dataInput, gender: sexoInput, userId: userId };
 
         try {
-            const response = await axios.post("http://localhost:5000/api/bets", betData);
+            const response = await axios.put(`http://localhost:5000/api/bets/${betId}`, betData);
 
-            console.log("Bet saved:", response.data);
-            navigate("/success", { state: { message: "Aposta concluída!" } });
+            console.log("Bet edited:", response.data);
+            navigate("/success", { state: { message: "Aposta editada!" } });
 
         } catch (error) {
-            console.error("Erro ao enviar aposta:", error.response?.data || error.message);
-            alert("Falha ao salvar aposta.");
+            console.error("Erro ao editar aposta:", error.response?.data || error.message);
+            alert("Falha ao editar aposta.");
         }
     };
 
     return (
         <main className="main-bets">
-            <h2>Apostas</h2>
+            <h2>Edite sua Aposta</h2>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Peso (kg):</label>
@@ -99,4 +106,4 @@ function Bets() {
     );
 }
 
-export default Bets;
+export default BetEdit;
