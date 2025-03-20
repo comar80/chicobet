@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { jwtDecode } from "jwt-decode";
 
 function SubmittedForm() {
     const location = useLocation();
@@ -12,8 +11,6 @@ function SubmittedForm() {
     const { message } = location.state || {};
 
     const token = localStorage.getItem("token");
-    const decodedToken = token ? jwtDecode(token) : null;
-    const userId = decodedToken?.userId;
 
     useEffect(() => {
         if (!token) {
@@ -24,7 +21,9 @@ function SubmittedForm() {
 
         const fetchBetData = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/bets/user/${userId}`);
+                const response = await axios.get(`http://localhost:5000/api/bets/user`, {
+                    headers: { "Authorization": `Bearer ${token}` }
+                });
 
                 setBetData(response.data);
             } catch (error) {
@@ -40,12 +39,11 @@ function SubmittedForm() {
         }, 3000);
 
         return () => clearTimeout(timer);
-    }, [navigate, token, userId]);
+    }, [navigate, token]);
 
     const handleEditClick = () => {
         if (betData) {
             navigate("/bet-edit", { state: { bet: betData } });
-            console.log("betData:", betData);
         }
     };
 

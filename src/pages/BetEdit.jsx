@@ -13,7 +13,6 @@ function BetEdit() {
     const [dataInput, setData] = useState("");
     const [sexoInput, setSexo] = useState("");
     const betId = location.state?.bet.id;
-    console.log("betId:", betId);
 
     const token = localStorage.getItem("token");
     const decodedToken = token ? jwtDecode(token) : null;
@@ -28,7 +27,9 @@ function BetEdit() {
 
         const fetchBetData = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/bets/user/${userId}`);
+                const response = await axios.get(`http://localhost:5000/api/bets/user`, {
+                    headers: { "Authorization": `Bearer ${token}` }
+                });
 
                 if (response.data) {
                     setPeso(response.data.weight || "");
@@ -50,7 +51,9 @@ function BetEdit() {
         const betData = { weight: pesoInput, size: tamanhoInput, date: dataInput, gender: sexoInput, userId: userId };
 
         try {
-            const response = await axios.put(`http://localhost:5000/api/bets/${betId}`, betData);
+            const response = await axios.put(`http://localhost:5000/api/bets/${betId}`, betData, {
+                    headers: { "Authorization": `Bearer ${token}` }
+                });
 
             console.log("Bet edited:", response.data);
             navigate("/success", { state: { message: "Aposta editada!" } });

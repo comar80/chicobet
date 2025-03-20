@@ -17,7 +17,7 @@ function Bets() {
     const userId = decodedToken?.userId;
 
     useEffect(() => {
-        if (!userId) {
+        if (!token) {
             alert("Você precisa estar logado para apostar!");
             navigate("/login");
             return;
@@ -25,7 +25,9 @@ function Bets() {
 
         const fetchBet = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/bets/user/${userId}`);
+                const response = await axios.get(`http://localhost:5000/api/bets/user`, {
+                    headers: { "Authorization": `Bearer ${token}` }
+                });
                 
                 if (response.data) {
                     navigate("/success", { state: { bet: response.data } });
@@ -36,14 +38,19 @@ function Bets() {
         };
 
         fetchBet();
-    }, [userId, navigate]);
+    }, [navigate, token]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const betData = { weight: pesoInput, size: tamanhoInput, date: dataInput, gender: sexoInput, userId: userId };
 
         try {
-            const response = await axios.post("http://localhost:5000/api/bets", betData);
+            const response = await axios.post("http://localhost:5000/api/bets", betData, {
+                headers: { 
+                    "Authorization": `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                },
+            });
 
             console.log("Bet saved:", response.data);
             navigate("/success", { state: { message: "Aposta concluída!" } });
