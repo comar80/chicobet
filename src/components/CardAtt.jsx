@@ -1,26 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+// import getDriveImages from "./getDriveImages";
+import getDriveJson from "./getDriveJson";
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation } from 'swiper/modules';
 
 function CardAtt() {
     const [selectedCard, setSelectedCard] = useState(null);
+    const [modalImages, setModalImages] = useState([]);
+    const [cards, setCards] = useState([]);
 
-    const cards = [
-        { id: '1', titulo: "Card 1", descricao: "Descrição do Card 1", info: "Semana 1" },
-        { id: '2', titulo: "Card 2", descricao: "Descrição do Card 2", info: "Semana 2" },
-        { id: '3', titulo: "Card 3", descricao: "Descrição do Card 3", info: "Semana 3" },
-        { id: '4', titulo: "Card 4", descricao: "Descrição do Card 4", info: "Semana 4" },
-        { id: '5', titulo: "Card 5", descricao: "Descrição do Card 5", info: "Semana 5" },
-        { id: '6', titulo: "Card 6", descricao: "Descrição do Card 6", info: "Semana 6" },
-    ];
+    useEffect(() => {
+        getDriveJson().then(data => {
+            if (data) {
+                setCards(data);
+            }
+        });
+    }, []);
 
     const handleCardClick = (index) => {
-        setSelectedCard(cards[index]);
+        const card = cards[index];
+        setSelectedCard(card);
+    
+        if (card.imagens && card.imagens.length > 0) {
+            const formattedImages = card.imagens.map((url) => {
+                const fileIdMatch = url.match(/[-\w]{25,}/);
+                return fileIdMatch ? `https://lh3.googleusercontent.com/d/${fileIdMatch[0]}=w1000` : url;
+            });
+    
+            setModalImages(formattedImages);
+        } else {
+            setModalImages([]);
+        }
     };
 
     const closeModal = () => {
         setSelectedCard(null);
+        setModalImages([]);
     };
 
     return (
@@ -29,16 +45,16 @@ function CardAtt() {
                 slidesPerView={4}
                 spaceBetween={10}
                 loop={true}
-                pagination={{
-                    clickable: true
-                }}
+                pagination={{ clickable: true }}
                 modules={[Pagination, Navigation]}
             >
                 {cards.map((card, index) => (
-                    <SwiperSlide key={index} className="card-att" >
+                    <SwiperSlide key={card.id} className="card-att">
                         <h3>{card.titulo}</h3>
                         <p>{card.descricao}</p>
-                        <button onClick={() => handleCardClick(index)} className="card-button">{card.info}</button>
+                        <button onClick={() => handleCardClick(index)} className="card-button">
+                            {card.info}
+                        </button>
                     </SwiperSlide>
                 ))}
             </Swiper>
@@ -50,6 +66,24 @@ function CardAtt() {
                             <h2>{selectedCard.titulo}</h2>
                             <p>{selectedCard.descricao}</p>
                             <p><strong>{selectedCard.info}</strong></p>
+
+                            {modalImages.length > 0 && (
+                                <div className="modal-card-images">
+                                    <Swiper
+                                        slidesPerView={2}
+                                        spaceBetween={10}
+                                        loop={true}
+                                        pagination={{ clickable: true }}
+                                        modules={[Pagination, Navigation]}
+                                    >
+                                        {modalImages.map((image, idx) => (
+                                            <SwiperSlide key={idx}>
+                                                <img src={image} alt={`Imagem ${idx + 1}`} className="modal-card-image" />
+                                            </SwiperSlide>
+                                        ))}
+                                    </Swiper>
+                                </div>
+                            )}
                         </div>
                         <button className="close-modal-card" onClick={closeModal}>
                             &#10005;
@@ -58,7 +92,7 @@ function CardAtt() {
                 </div>
             )}
         </div>
-    )
+    );
 
 }
 
