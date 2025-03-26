@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const FOLDER_ID = import.meta.env.VITE_FOLDER_ID;
+const FOLDER_ID = import.meta.env.VITE_IMAGE_FOLDER_ID;
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 const getDriveImages = async () => {

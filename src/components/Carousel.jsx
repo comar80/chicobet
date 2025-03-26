@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import getDriveImages from "./getDriveImages";
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation } from 'swiper/modules';
@@ -6,18 +7,18 @@ import { Pagination, Navigation } from 'swiper/modules';
 function Carousel() {
     const [selectedImage, setSelectedImage] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(null);
+    const [photos, setPhotos] = useState([]);
 
-    const photos = [
-        { id: '1', src: "https://images.pexels.com/photos/161709/newborn-baby-feet-basket-161709.jpeg", alt: "Photo 1" },
-        { id: '2', src: "https://images.pexels.com/photos/1648377/pexels-photo-1648377.jpeg", alt: "Photo 2" },
-        { id: '3', src: "https://images.pexels.com/photos/459953/pexels-photo-459953.jpeg", alt: "Photo 3" },
-        { id: '4', src: "https://images.pexels.com/photos/161709/newborn-baby-feet-basket-161709.jpeg", alt: "Photo 1" },
-        { id: '5', src: "https://images.pexels.com/photos/1648377/pexels-photo-1648377.jpeg", alt: "Photo 2" },
-        { id: '6', src: "https://images.pexels.com/photos/459953/pexels-photo-459953.jpeg", alt: "Photo 3" },
-    ];
+    useEffect(() => {
+        getDriveImages().then(data => {
+            if (data) {
+                setPhotos(data);
+            }
+        });
+    }, []);
 
     const handleImageClick = (index) => {
-        setSelectedImage(photos[index].src);
+        setSelectedImage(photos[index].url);
         setCurrentIndex(index);
     };
 
@@ -28,13 +29,13 @@ function Carousel() {
 
     const goToNextImage = () => {
         const nextIndex = (currentIndex + 1) % photos.length;
-        setSelectedImage(photos[nextIndex].src);
+        setSelectedImage(photos[nextIndex].url);
         setCurrentIndex(nextIndex);
     };
 
     const goToPreviousImage = () => {
         const prevIndex = (currentIndex - 1 + photos.length) % photos.length;
-        setSelectedImage(photos[prevIndex].src);
+        setSelectedImage(photos[prevIndex].url);
         setCurrentIndex(prevIndex);
     };
 
@@ -53,7 +54,7 @@ function Carousel() {
                     <SwiperSlide>
                         <img 
                             key={index}
-                            src={photo.src} 
+                            src={photo.url} 
                             alt={photo.alt} 
                             className="carousel-image"
                             onClick={() => handleImageClick(index)} 

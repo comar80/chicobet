@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import getDriveImages from "./getDriveImages";
 import getDriveJson from "./getDriveJson";
 
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -65,12 +64,12 @@ function CardAtt() {
                         <div className="modal-card-text">
                             <h2>{selectedCard.titulo}</h2>
                             <p>{selectedCard.descricao}</p>
-                            <p><strong>{selectedCard.info}</strong></p>
+                            <p className="modal-texto">{selectedCard.texto}</p>
 
                             {modalImages.length > 0 && (
                                 <div className="modal-card-images">
                                     <Swiper
-                                        slidesPerView={2}
+                                        slidesPerView={3}
                                         spaceBetween={10}
                                         loop={true}
                                         pagination={{ clickable: true }}
