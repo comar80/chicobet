@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import getDriveJson from "./getDriveJson";
+import getCardsJson from "../hooks/getCardsJson";
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation } from 'swiper/modules';
@@ -10,7 +10,7 @@ function CardAtt() {
     const [cards, setCards] = useState([]);
 
     useEffect(() => {
-        getDriveJson().then(data => {
+        getCardsJson().then(data => {
             if (data) {
                 setCards(data);
             }
@@ -21,8 +21,8 @@ function CardAtt() {
         const card = cards[index];
         setSelectedCard(card);
     
-        if (card.imagens && card.imagens.length > 0) {
-            const formattedImages = card.imagens.map((url) => {
+        if (card.images && card.images.length > 0) {
+            const formattedImages = card.images.map((url) => {
                 const fileIdMatch = url.match(/[-\w]{25,}/);
                 return fileIdMatch ? `https://lh3.googleusercontent.com/d/${fileIdMatch[0]}=w1000` : url;
             });
@@ -49,8 +49,8 @@ function CardAtt() {
             >
                 {cards.map((card, index) => (
                     <SwiperSlide key={card.id} className="card-att">
-                        <h3>{card.titulo}</h3>
-                        <p>{card.descricao}</p>
+                        <h3>{card.title}</h3>
+                        <p>{card.description}</p>
                         <button onClick={() => handleCardClick(index)} className="card-button">
                             {card.info}
                         </button>
@@ -62,9 +62,9 @@ function CardAtt() {
                 <div className="modal-card">
                     <div className="modal-card-content" onClick={(e) => e.stopPropagation()}>
                         <div className="modal-card-text">
-                            <h2>{selectedCard.titulo}</h2>
-                            <p>{selectedCard.descricao}</p>
-                            <p className="modal-texto">{selectedCard.texto}</p>
+                            <h2>{selectedCard.title}</h2>
+                            <p>{selectedCard.description}</p>
+                            <p className="modal-texto">{selectedCard.text}</p>
 
                             {modalImages.length > 0 && (
                                 <div className="modal-card-images">

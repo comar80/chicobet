@@ -89,6 +89,13 @@ main p {
 }
 
 .modal-texto {
+  width: 80vw;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  margin: 0 auto;
+  text-align: justify;
+  line-height: 1.6;
+  margin-bottom: 16px;
 }
 
 .modal-card {
@@ -119,7 +126,7 @@ main p {
 }
 
 .modal-card-images {
-  width: 100vw;
+  width: 90vw;
   margin: 0 auto;
 }
 
