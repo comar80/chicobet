@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import getDriveImages from "../hooks/getDriveImages";
+import getDriveImages from "../services/getDriveImages";
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation } from 'swiper/modules';

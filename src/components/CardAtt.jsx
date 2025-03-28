@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import getCardsJson from "../hooks/getCardsJson";
+import getCardsJson from "../services/getCardsJson";
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation } from 'swiper/modules';
