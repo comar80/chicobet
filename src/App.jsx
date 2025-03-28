@@ -2,6 +2,13 @@ import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 
+// @mui material components
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+
+// Material Kit 2 React themes
+import theme from "./assets/theme";
+
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
@@ -27,16 +34,19 @@ function App() {
 
   return (
     <>
-      {!hideHeader && <Header />}
-      <Routes>
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={ <Home /> } />
-        <Route path="/bets" element={<PrivateRoute>  <Bets /> </PrivateRoute> }/>
-        <Route path="/bet-edit" element={ <BetEdit /> }/>
-        <Route path="/success" element={ <SubmittedForm /> } />
-      </Routes>
-      <Footer />
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        {!hideHeader && <Header />}
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/bets" element={<PrivateRoute>  <Bets /> </PrivateRoute>} />
+          <Route path="/bet-edit" element={<BetEdit />} />
+          <Route path="/success" element={<SubmittedForm />} />
+        </Routes>
+        <Footer />
+      </ThemeProvider>
     </>
   );
 }
