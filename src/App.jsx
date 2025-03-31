@@ -45,7 +45,6 @@ function App() {
           <Route path="/bet-edit" element={<BetEdit />} />
           <Route path="/success" element={<SubmittedForm />} />
         </Routes>
-        <Footer />
       </ThemeProvider>
     </>
   );

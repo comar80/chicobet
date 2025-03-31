@@ -6,6 +6,11 @@ import MKButton from "components/MKButton";
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import MKInput from "components/MKInput";
+import { Card, Container, Grid } from "@mui/material";
+
+import bgImage from "assets/images/babybet-bg1.jpg";
+import SimpleFooter from "examples/Footers/SimpleFooter";
+
 
 function Register() {
     const [name, setName] = useState("");
@@ -33,19 +38,72 @@ function Register() {
     };
 
     return (
-        <main className="register-page">
-            <h2>Cadastro</h2>
-            <form onSubmit={handleRegister} className="register-form">
-                <input type="text" placeholder="Nome Completo" value={name} onChange={(e) => setName(e.target.value)} required />
-                <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                <input type="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                <MKBox mt={4} mb={1}>
-                    <MKButton variant="gradient" color="info" fullWidth type="submit">
-                        Cadastrar
-                    </MKButton>
-                </MKBox>
-            </form>
-        </main>
+        <>
+            <MKBox
+                position="absolute"
+                top={0}
+                left={0}
+                zIndex={1}
+                width="100%"
+                minHeight="100vh"
+                sx={{
+                    backgroundImage: ({ functions: { linearGradient, rgba }, palette: { gradients } }) =>
+                        `${linearGradient(
+                            rgba(gradients.dark.main, 0.6),
+                            rgba(gradients.dark.state, 0.6)
+                        )}, url(${bgImage})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                }}
+            />
+            <MKBox px={1} width="100%" height="100vh" mx="auto" position="relative" zIndex={2}>
+                <Grid container spacing={1} justifyContent="center" alignItems="center" height="100%">
+                    <Grid size={{ xs: 11, sm: 9, md: 5, lg: 4, xl: 3 }} >
+                        <Card>
+                            <MKBox
+                                variant="gradient"
+                                bgColor="secondary"
+                                borderRadius="lg"
+                                coloredShadow="info"
+                                mx={2}
+                                mt={-3}
+                                p={2}
+                                mb={1}
+                                textAlign="center"
+                            >
+                                <MKBox>
+                                    <MKTypography variant="h4" fontWeight="medium" color="white" mt={1}>
+                                        Cadastre-se
+                                    </MKTypography>
+                                </MKBox>
+                            </MKBox>
+                            <MKBox pt={3} pb={3} px={12}>
+                                <MKBox component="form" role="form" onSubmit={handleRegister}>
+                                    <MKBox mb={2}>
+                                        <MKInput variant="standard" label="Nome Completo" type="text" placeholder="Frank Vincent Zappa" value={name} onChange={(e) => setName(e.target.value)} required />
+                                    </MKBox>
+                                    <MKBox mb={2}>
+                                        <MKInput variant="standard" label="Email" type="email" placeholder="email@dominio.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                                    </MKBox>
+                                    <MKBox mb={2}>
+                                        <MKInput variant="standard" label="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                                    </MKBox>
+                                    <MKBox mt={4} mb={1}>
+                                        <MKButton variant="gradient" color="secondary" fullWidth type="submit">
+                                            Cadastrar
+                                        </MKButton>
+                                    </MKBox>
+                                </MKBox>
+                            </MKBox>
+                        </Card>
+                    </Grid>
+                </Grid>
+            </MKBox>
+            <MKBox width="100%" position="absolute" zIndex={2} bottom="1.625rem">
+                <SimpleFooter light />
+            </MKBox>
+        </>
     );
 }
 
