@@ -28,7 +28,7 @@ import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import MKButton from "components/MKButton";
 
-function CenteredBlogCard({ image, title, description, action }) {
+function CenteredBlogCard2({ image, title, description }) {
   return (
     <Card>
       <MKBox position="relative" borderRadius="lg" mx={2} mt={-3}>
@@ -38,14 +38,19 @@ function CenteredBlogCard({ image, title, description, action }) {
           alt={title}
           borderRadius="lg"
           width="100%"
+          sx={{
+            height: "40vh",
+            objectFit: "cover",
+            mt: "30px",
+          }}
           position="relative"
           zIndex={1}
         />
-        <MKBox
+        {/* <MKBox
           borderRadius="lg"
           shadow="md"
           width="100%"
-          height="100%"
+          height="40%"
           position="absolute"
           left={0}
           top={0}
@@ -55,7 +60,7 @@ function CenteredBlogCard({ image, title, description, action }) {
             filter: "blur(12px)",
             backgroundSize: "cover",
           }}
-        />
+        /> */}
       </MKBox>
       <MKBox p={3} mt={-1} textAlign="center">
         <MKTypography display="inline" variant="h5" textTransform="capitalize" fontWeight="regular">
@@ -66,42 +71,19 @@ function CenteredBlogCard({ image, title, description, action }) {
             {description}
           </MKTypography>
         </MKBox>
-        {action.type === "external" ? (
-          <MKButton
-            component={MuiLink}
-            href={action.route}
-            target="_blank"
-            rel="noreferrer"
-            variant="gradient"
-            size="small"
-            color={action.color ? action.color : "dark"}
-          >
-            {action.label}
-          </MKButton>
-        ) : (
-          <MKButton
-            component={Link}
-            to={action.route}
-            variant="gradient"
-            size="small"
-            color={action.color ? action.color : "dark"}
-          >
-            {action.label}
-          </MKButton>
-        )}
       </MKBox>
     </Card>
   );
 }
 
 // Typechecking props for the CenteredBlogCard
-CenteredBlogCard.propTypes = {
-  image: PropTypes.string.isRequired,
+CenteredBlogCard2.propTypes = {
+  image: PropTypes.string,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   action: PropTypes.shape({
-    type: PropTypes.oneOf(["external", "internal"]).isRequired,
-    route: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(["external", "internal"]),
+    route: PropTypes.string,
     color: PropTypes.oneOf([
       "primary",
       "secondary",
@@ -116,4 +98,4 @@ CenteredBlogCard.propTypes = {
   }).isRequired,
 };
 
-export default CenteredBlogCard;
+export default CenteredBlogCard2;

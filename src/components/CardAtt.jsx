@@ -4,6 +4,8 @@ import getCardsJson from "../services/getCardsJson";
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation } from 'swiper/modules';
 
+import CenteredBlogCard from "examples/Cards/BlogCards/CenteredBlogCard";
+
 function CardAtt() {
     const [selectedCard, setSelectedCard] = useState(null);
     const [modalImages, setModalImages] = useState([]);
@@ -18,15 +20,16 @@ function CardAtt() {
     }, []);
 
     const handleCardClick = (index) => {
+        console.log("Card clicked:", index);
         const card = cards[index];
         setSelectedCard(card);
-    
+
         if (card.images && card.images.length > 0) {
             const formattedImages = card.images.map((url) => {
                 const fileIdMatch = url.match(/[-\w]{25,}/);
                 return fileIdMatch ? `https://lh3.googleusercontent.com/d/${fileIdMatch[0]}=w1000` : url;
             });
-    
+
             setModalImages(formattedImages);
         } else {
             setModalImages([]);
@@ -46,14 +49,34 @@ function CardAtt() {
                 loop={true}
                 pagination={{ clickable: true }}
                 modules={[Pagination, Navigation]}
+
+                breakpoints={{
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 10
+                    },
+                    600: {
+                        slidesPerView: 2,
+                        spaceBetween: 10
+                    },
+                    900: {
+                        slidesPerView: 3,
+                        spaceBetween: 10
+                    }
+                }}
             >
                 {cards.map((card, index) => (
                     <SwiperSlide key={card.id} className="card-att">
-                        <h3>{card.title}</h3>
-                        <p>{card.description}</p>
-                        <button onClick={() => handleCardClick(index)} className="card-button">
-                            {card.info}
-                        </button>
+                        <CenteredBlogCard
+                            image={card.images[0]}
+                            title={card.description}
+                            // description={card.description}
+                            action={{
+                                color: "info",
+                                label: "Mais informações",
+                                onClick: () => handleCardClick(index)
+                            }}
+                        />
                     </SwiperSlide>
                 ))}
             </Swiper>

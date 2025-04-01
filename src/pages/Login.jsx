@@ -32,8 +32,6 @@ function Login() {
             const { token } = response.data;
 
             localStorage.setItem("token", token);
-
-            alert("Login bem sucedido!");
             login(token);
             navigate("/");
 

@@ -8,7 +8,11 @@ export default defineConfig({
       src: "/src",
       assets: "/src/assets",
       components: "/src/components",
-      examples: "/src/examples"
+      examples: "/src/examples",
+      routes: "/src/routes",
+      layouts: "/src/layouts",
+      pages: "/src/pages",
+      context: "/src/context",
     },
   },
 });

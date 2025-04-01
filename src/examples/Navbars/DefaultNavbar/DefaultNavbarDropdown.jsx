@@ -36,6 +36,7 @@ function DefaultNavbarDropdown({
   href,
   route,
   collapse,
+  onClick,
   ...rest
 }) {
   const linkComponent = {
@@ -63,6 +64,7 @@ function DefaultNavbarDropdown({
         sx={{ cursor: "pointer", userSelect: "none" }}
         {...(route && routeComponent)}
         {...(href && linkComponent)}
+        onClick={onClick}
       >
         <MKTypography
           variant="body2"

@@ -1,5 +1,12 @@
 import React from "react";
 
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+
+import MKBox from "components/MKBox";
+import MKTypography from "components/MKTypography";
+import CenteredBlogCard2 from "examples/Cards/BlogCards/CenteredBlogCard2";
+
 
 function Prizes() {
 
@@ -11,19 +18,35 @@ function Prizes() {
 
 
     return (
-        <div className="prizes">
-            {premios.map((premio) => (
-                    <div key={premio.id} className="card-prize" >
-                        <h3>{premio.titulo}</h3>
-                        <img 
-                            src={premio.imagem} 
-                            alt={premio.alt} 
-                            className="prize-image"
-                            />
-                        <p>{premio.descricao}</p>
-                    </div>
-                ))}
-        </div>
+        <>
+            <MKBox component="section" pt={3} pb={8}>
+            <Container>
+                <Grid container>
+                    <Grid size={{ xs:12, md:8  }} sx={{ mb: 2 }}>
+                        <MKTypography variant="h3" color="dark.gradient">
+                            Prêmios
+                        </MKTypography>
+                        {/* <MKTypography variant="body2" color="white" opacity={0.8}>
+                            Novidades da semana
+                        </MKTypography> */}
+                    </Grid>
+                </Grid>
+            </Container>
+                <Container>
+                    <Grid container justifyContent="center" sx={{ textAlign: "center" }}>
+                        {premios.map((premio) => (
+                            <Grid size={{ xs: 12, md: 3 }} sx={{ m: 1 }} >
+                                <CenteredBlogCard2
+                                    image={premio.imagem}
+                                    title={premio.titulo}
+                                    description={premio.descricao}
+                                />
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Container>
+            </MKBox>
+        </>
     );
 }
 

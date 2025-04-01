@@ -29,8 +29,8 @@ function SimpleFooter({light}) {
 
   const links =  [
     { href: "/", name: "Home" },
-    { href: "/", name: "Apostas" },
-    { href: "/", name: "Sobre Nós" },
+    { href: "/register", name: "Apostas" },
+    { href: "/about", name: "Sobre Nós" },
   ]
   const { size } = typography;
 
@@ -43,7 +43,7 @@ function SimpleFooter({light}) {
         pr={key === links.length - 1 ? 0 : 2}
         lineHeight={1}
       >
-        <Link href={link.href} target="_blank">
+        <Link href={link.href} >
           <MKTypography variant="button" fontWeight="regular" color={light ? "white" : "text"} sx={{ textTransform: "none" }}>
             {link.name}
           </MKTypography>
