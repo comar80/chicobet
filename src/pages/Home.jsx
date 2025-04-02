@@ -19,11 +19,11 @@ import bgImage from "assets/images/babybet-bg1.jpg";
 function Home() {
     return (
         <>
-            <MKBox position="fixed" top="0.5rem" width="100%" zIndex={10}>
+            {/* <MKBox position="fixed" top="0.5rem" width="100%" zIndex={10}> */}
                 <DefaultNavbar
                     brand="BabyBet"
                 />
-            </MKBox>
+            {/* </MKBox> */}
             <MKBox
                 minHeight="70vh"
                 width="100%"
@@ -75,7 +75,7 @@ function Home() {
                     mx: { xs: 2, lg: 3 },
                     mt: -8,
                     mb: 4,
-                    boxShadow: ({ boxShadows: { xxl } }) => xxl,
+                    boxShadow: 2,
                     bgcolor: ({ palette }) => palette.light.main
                 }}
             >

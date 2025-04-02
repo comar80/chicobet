@@ -36,8 +36,8 @@ function News() {
                 </Grid>
             </Container>
             <Grid container >
-                    <Grid size={{xs:12, lg:6}}>
-                        <MKBox mb={1}>
+                    <Grid size={12}>
+                        <MKBox >
                         <CardAtt />
                         </MKBox>
                     </Grid>
