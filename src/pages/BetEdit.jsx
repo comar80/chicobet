@@ -6,13 +6,17 @@ import { jwtDecode } from "jwt-decode";
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Tooltip from "@mui/material/Tooltip";
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKInput from "components/MKInput";
 import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
-import Tooltip from "@mui/material/Tooltip";
 
 // Images
 import bgImage from "assets/images/babybet-bg1.jpg";
@@ -210,6 +214,28 @@ function BetEdit() {
                                                                 required
                                                             />
                                                         </Tooltip>
+                                                    </Grid>
+
+                                                    <Grid size={{ xs: 6, md: 4 }} pr={1} mb={6}>
+
+                                                        {/* <MKTypography variant="body1" color="text" mb={2}>
+                                                                                                                <strong>Sexo:</strong>
+                                                                                                            </MKTypography> */}
+                                                        <FormControl variant="standard" fullWidth>
+                                                            <InputLabel id="gender">Sexo*</InputLabel>
+                                                            <Select
+                                                                labelId="gender"
+                                                                id="gender"
+                                                                value={sexoInput}
+                                                                onChange={(e) => setSexo(e.target.value)}
+                                                                required
+                                                                label="Sexo"
+                                                            >
+                                                                <MenuItem value="male">
+                                                                    Menino
+                                                                </MenuItem>
+                                                            </Select>
+                                                        </FormControl>
                                                     </Grid>
                                                 </Grid>
                                                 <Grid

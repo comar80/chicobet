@@ -41,7 +41,15 @@ function SubmittedForm() {
                     headers: { "Authorization": `Bearer ${token}` }
                 });
 
-                setBetData(response.data);
+                let data = response.data; // Store response data
+
+                data = {
+                    ...data,
+                    date: data.date ? data.date.split("-").reverse().join("-") : data.date,
+                    gender: data.gender === "male" ? "Menino" : data.gender === "female" ? "Menina" : data.gender
+                };
+
+                setBetData(data);
             } catch (error) {
                 console.error("Erro ao buscar dados da aposta:", error);
                 alert("Falha ao carregar dados da aposta.");
@@ -156,12 +164,12 @@ function SubmittedForm() {
                                                                         <strong>Data:</strong> {betData.date}
                                                                     </MKTypography>}
                                                             </Grid>
-                                                            {/* <Grid xs={12} pr={1} mb={6}>
+                                                            <Grid xs={12} pr={1} mb={6}>
                                                                 {betData.gender &&
                                                                     <MKTypography variant="body1" color="text" mb={2}>
                                                                         <strong>Sexo:</strong> {betData.gender}
                                                                     </MKTypography>}
-                                                            </Grid> */}
+                                                            </Grid>
                                                         </>
                                                     ) : (
                                                         <Grid xs={12} pr={1} mb={6}>

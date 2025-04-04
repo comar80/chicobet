@@ -79,11 +79,14 @@ function CardAtt() {
                             >
                                 {selectedCard.description}
                             </MKTypography>
-                            <MKTypography variant="body1" color="dark.gradient" opacity={0.8} mt={1} mb={3}>
+                            <MKTypography variant="body1" color="dark.gradient" opacity={0.8} mt={1} mb={1}>
                                 {selectedCard.text}
                             </MKTypography>
+                            {/* <MKTypography variant="body2" color="dark.gradient" opacity={0.8} mb={2}>
+                                * Informações do App Gravidez+
+                            </MKTypography> */}
 
-                            {modalImages.length > 0 && (
+                            {modalImages.length > 1 && (
                                 <MKBox sx={{
                                     width: "100%",
                                     margin: "0 auto"
@@ -116,12 +119,42 @@ function CardAtt() {
                                     >
                                         {modalImages.map((image, idx) => (
                                             <SwiperSlide key={idx} className="modal-card-slide">
-                                                <img src={image} alt={`Imagem ${idx + 1}`} className="modal-card-image" />
+                                                <div className="image-container">
+                                                    <img src={image} alt={`Imagem ${idx + 1}`} />
+                                                </div>
                                             </SwiperSlide>
+
                                         ))}
                                     </Swiper>
                                 </MKBox>
                             )}
+
+                            {selectedCard.video.length > 0 && (
+                                <MKBox
+                                    sx={{
+                                        position: "relative",
+                                        width: "100%",
+                                        paddingTop: "56.25%", /* 16:9 Aspect Ratio */
+                                        marginTop: 3
+                                    }}
+                                >
+                                    <iframe
+                                        src={selectedCard.video[0]}
+                                        title="YouTube Video"
+                                        allowFullScreen
+                                        style={{
+                                            position: "absolute",
+                                            top: 0,
+                                            left: 0,
+                                            width: "100%",
+                                            height: "100%",
+                                            border: "none",
+                                            borderRadius: "10px",
+                                        }}
+                                    />
+                                </MKBox>
+                            )}
+
                             <button className="close-modal-card" onClick={closeModal}>
                                 &#10005;
                             </button>
