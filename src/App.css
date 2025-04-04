@@ -258,10 +258,10 @@ main p {
   object-fit: cover;
 } */
 
-.swiper-slide-active {
+/* .swiper-slide-active {
   transform: scale(1.05);
   transition: transform 0.3s ease;
-}
+} */
 
 .title {
   text-align: center;
