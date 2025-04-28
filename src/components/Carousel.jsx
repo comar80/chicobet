@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import getDriveImages from "../services/getDriveImages";
+// import getDriveImages from "../services/getDriveImages";
+import getCloudinaryImages from "../services/getCloudinaryImages";
+
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
@@ -12,7 +14,7 @@ function Carousel() {
     const [photos, setPhotos] = useState([]);
 
     useEffect(() => {
-        getDriveImages().then(data => {
+        getCloudinaryImages().then(data => {
             if (data) {
                 setPhotos(data);
             }
