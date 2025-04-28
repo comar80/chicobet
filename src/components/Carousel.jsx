@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
-import getDriveImages from "../services/getDriveImages";
+// import getDriveImages from "../services/getDriveImages";
+import getCloudinaryImages from "../services/getCloudinaryImages";
+
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination, Navigation } from 'swiper/modules';
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+
+import 'swiper/css/bundle';
 
 function Carousel() {
     const [selectedImage, setSelectedImage] = useState(null);
@@ -10,7 +14,7 @@ function Carousel() {
     const [photos, setPhotos] = useState([]);
 
     useEffect(() => {
-        getDriveImages().then(data => {
+        getCloudinaryImages().then(data => {
             if (data) {
                 setPhotos(data);
             }
@@ -44,21 +48,46 @@ function Carousel() {
             <Swiper
                 slidesPerView={3}
                 spaceBetween={10}
+                centeredSlides={true}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: true,
+                }}
                 loop={true}
                 pagination={{
                     clickable: true
                 }}
-                modules={[Pagination, Navigation]}
+
+                breakpoints={{
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    481: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    769: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    1281: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                }}
+
+                modules={[Pagination, Navigation, Autoplay]}
             >
                 {photos.map((photo, index) => (
                     <SwiperSlide>
-                        <img 
+                        <img
                             key={index}
-                            src={photo.url} 
-                            alt={photo.alt} 
+                            src={photo.url}
+                            alt={photo.alt}
                             className="carousel-image"
-                            onClick={() => handleImageClick(index)} 
-                            />
+                            onClick={() => handleImageClick(index)}
+                        />
                     </SwiperSlide>
                 ))}
             </Swiper>
