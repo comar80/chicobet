@@ -6,7 +6,8 @@ import MKButton from "components/MKButton";
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import MKInput from "components/MKInput";
-import { Card, Container, Grid } from "@mui/material";
+import { Card, Container, Grid, Typography, IconButton, InputAdornment } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 import bgImage from "assets/images/babybet-bg1.jpg";
 import SimpleFooter from "examples/Footers/SimpleFooter";
@@ -16,11 +17,45 @@ function Register() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
 
     const navigate = useNavigate();
 
+    const handlePasswordChange = (e) => {
+        const newPassword = e.target.value;
+        setPassword(newPassword);
+
+        if (confirmPassword && newPassword !== confirmPassword) {
+            setErrorMessage("As senhas não coincidem");
+        } else {
+            setErrorMessage("");
+        }
+    };
+
+    const handleConfirmPasswordChange = (e) => {
+        const newConfirmPassword = e.target.value;
+        setConfirmPassword(newConfirmPassword);
+
+        if (password && newConfirmPassword !== password) {
+            setErrorMessage("As senhas não coincidem");
+        } else {
+            setErrorMessage("");
+        }
+    };
+
     const handleRegister = async (e) => {
         e.preventDefault();
+
+        if (password !== confirmPassword) {
+            setErrorMessage("As senhas não coincidem");
+            return;
+        }
+
+        setErrorMessage("");
 
         const userData = { name, email, password };
         try {
@@ -87,7 +122,59 @@ function Register() {
                                         <MKInput variant="standard" label="Email" type="email" placeholder="email@dominio.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
                                     </MKBox>
                                     <MKBox mb={2}>
-                                        <MKInput variant="standard" label="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                                        <MKInput
+                                            variant="standard"
+                                            label="Senha"
+                                            type={showPassword ? "text" : "password"}
+                                            value={password}
+                                            onChange={handlePasswordChange}
+                                            required
+                                            InputProps={{
+                                                endAdornment: (
+                                                    <InputAdornment position="end">
+                                                        <IconButton
+                                                            onClick={() => setShowPassword(!showPassword)}
+                                                            edge="end"
+                                                            sx={{ fontSize: "20px" }}
+                                                        >
+                                                            {showPassword ? <VisibilityOff sx={{ fontSize: "20px" }} /> : <Visibility sx={{ fontSize: "20px" }} />}
+                                                        </IconButton>
+                                                    </InputAdornment>
+                                                ),
+                                            }}
+                                        />
+                                    </MKBox>
+                                    <MKBox mb={2}>
+                                        <MKInput
+                                            variant="standard"
+                                            label="Confirmar Senha"
+                                            type={showConfirmPassword ? "text" : "password"}
+                                            value={confirmPassword}
+                                            onChange={handleConfirmPasswordChange}
+                                            required
+                                            InputProps={{
+                                                endAdornment: (
+                                                    <InputAdornment position="end">
+                                                        <IconButton
+                                                            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                                            edge="end"
+                                                            sx={{ fontSize: "20px" }}
+                                                        >
+                                                            {showConfirmPassword ? <VisibilityOff sx={{ fontSize: "20px" }}/> : <Visibility sx={{ fontSize: "20px" }}/>}
+                                                        </IconButton>
+                                                    </InputAdornment>
+                                                ),
+                                            }}
+                                        />
+                                        {errorMessage && (
+                                            <Typography
+                                                variant="caption"
+                                                color="error"
+                                                sx={{ display: "block", mt: 1 }}
+                                            >
+                                                {errorMessage}
+                                            </Typography>
+                                        )}
                                     </MKBox>
                                     <MKBox mt={4} mb={1}>
                                         <MKButton variant="gradient" color="secondary" fullWidth type="submit">

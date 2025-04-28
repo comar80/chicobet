@@ -7,7 +7,8 @@ import MKButton from "components/MKButton";
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import MKInput from "components/MKInput";
-import { Card, Grid } from "@mui/material";
+import { Card, Grid, IconButton, InputAdornment } from "@mui/material";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 import SimpleFooter from "examples/Footers/SimpleFooter";
@@ -19,6 +20,7 @@ function Login() {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -89,7 +91,27 @@ function Login() {
                                         <MKInput variant="standard" label="Email" type="email" placeholder="email@dominio.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
                                     </MKBox>
                                     <MKBox mb={2}>
-                                        <MKInput variant="standard" label="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                                        <MKInput 
+                                        variant="standard" 
+                                        label="Senha" 
+                                        type={showPassword ? "text" : "password"} 
+                                        value={password} 
+                                        onChange={(e) => setPassword(e.target.value)} 
+                                        required
+                                        InputProps={{
+                                            endAdornment: (
+                                                <InputAdornment position="end">
+                                                    <IconButton
+                                                        onClick={() => setShowPassword(!showPassword)}
+                                                        edge="end"
+                                                        sx={{ fontSize: "20px" }}
+                                                    >
+                                                        {showPassword ? <VisibilityOff sx={{ fontSize: "20px" }} /> : <Visibility sx={{ fontSize: "20px" }} />}
+                                                    </IconButton>
+                                                </InputAdornment>
+                                            ),
+                                        }}
+                                        />
                                     </MKBox>
                                     <MKBox mt={4} mb={1}>
                                         <MKButton variant="gradient" color="secondary" fullWidth type="submit">
