@@ -15,6 +15,8 @@ import BetEdit from "./pages/BetEdit";
 import SubmittedForm from "./pages/SubmittedForm";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import About from "./pages/About";
+import Gifts from "./pages/Gifts";
 
 import PrivateRoute from "./components/PrivateRoute";
 
@@ -38,6 +40,8 @@ function App() {
           <Route path="/bets" element={<PrivateRoute>  <Bets /> </PrivateRoute>} />
           <Route path="/bet-edit" element={<BetEdit />} />
           <Route path="/success" element={<SubmittedForm />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/gifts" element={<Gifts />} />
         </Routes>
       </ThemeProvider>
     </>
