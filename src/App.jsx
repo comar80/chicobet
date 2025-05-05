@@ -37,8 +37,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
-          <Route path="/bets" element={<PrivateRoute>  <Bets /> </PrivateRoute>} />
-          <Route path="/bet-edit" element={<BetEdit />} />
+          <Route path="/bets" element={ <Bets /> } />
+          {/* <Route path="/bet-edit" element={<BetEdit />} /> */}
           <Route path="/success" element={<SubmittedForm />} />
           <Route path="/about" element={<About />} />
           <Route path="/gifts" element={<Gifts />} />

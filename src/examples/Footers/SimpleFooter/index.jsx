@@ -30,7 +30,7 @@ function SimpleFooter({light}) {
   const links =  [
     { href: "/", name: "Home" },
     { href: "/register", name: "Apostas" },
-    { href: "/gifts", name: "Presentes" },
+    // { href: "/gifts", name: "Presentes" },
     { href: "/about", name: "Sobre" },
   ]
   const { size } = typography;

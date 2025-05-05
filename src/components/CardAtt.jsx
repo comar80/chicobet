@@ -61,10 +61,15 @@ function CardAtt() {
                             <MKTypography
                                 variant="h2"
                                 color="dark.gradient"
-                                sx={({ breakpoints, typography: { size } }) => ({
+                                sx={({ breakpoints }) => ({
+                                    fontSize: "2rem",
                                     [breakpoints.down("md")]: {
-                                        fontSize: size["3xl"],
-                                    }, textAlign: "center"
+                                        fontSize: "1.8rem",
+                                    },
+                                    [breakpoints.down("sm")]: {
+                                        fontSize: "1.5rem",
+                                    },
+                                    textAlign: "center"
                                 })}
                             >
                                 {selectedCard.title}
@@ -75,11 +80,35 @@ function CardAtt() {
                                 opacity={0.8}
                                 mt={1}
                                 mb={3}
-                                sx={{ textAlign: "center" }}
+                                sx={({ breakpoints }) => ({
+                                    fontSize: "1.8rem",
+                                    [breakpoints.down("md")]: {
+                                        fontSize: "1.5rem",
+                                    },
+                                    [breakpoints.down("sm")]: {
+                                        fontSize: "1.1rem",
+                                    },
+                                    textAlign: "center"
+                                })}
                             >
                                 {selectedCard.description}
                             </MKTypography>
-                            <MKTypography variant="body1" color="dark.gradient" opacity={0.8} mt={1} mb={1}>
+                            <MKTypography 
+                            variant="body1" 
+                            color="dark.gradient" 
+                            opacity={0.8} 
+                            mt={1} 
+                            mb={1}
+                            sx={({ breakpoints }) => ({
+                                textAlign: "justify",
+                                fontSize: "1.1rem",
+                                [breakpoints.down("md")]: {
+                                    fontSize: "1rem",
+                                },
+                                [breakpoints.down("sm")]: {
+                                    fontSize: "0.9rem",                                },
+                            })}
+                            >
                                 {selectedCard.text}
                             </MKTypography>
                             {/* <MKTypography variant="body2" color="dark.gradient" opacity={0.8} mb={2}>

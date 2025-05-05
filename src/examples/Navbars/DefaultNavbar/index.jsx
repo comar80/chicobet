@@ -96,7 +96,7 @@ function DefaultNavbar({ brand, transparent, light, action, sticky, relative, ce
 
   const routes = [
     { name: "Apostas", route: "/bets"},
-    { name: "Presentes", route: "/gifts" },
+    // { name: "Presentes", route: "/gifts" },
     { name: "Sobre", route: "/about" },
     user
       ? { name: "Logout", route: "/", onClick: handleLogout }

@@ -73,124 +73,144 @@ function Register() {
     };
 
     return (
-        <>
-            <MKBox
-                position="absolute"
-                top={0}
-                left={0}
-                zIndex={1}
-                width="100%"
-                minHeight="100vh"
-                sx={{
-                    backgroundImage: ({ functions: { linearGradient, rgba }, palette: { gradients } }) =>
-                        `${linearGradient(
-                            rgba(gradients.dark.main, 0.6),
-                            rgba(gradients.dark.state, 0.6)
-                        )}, url(${bgImage})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                }}
-            />
-            <MKBox px={1} width="100%" height="100vh" mx="auto" position="relative" zIndex={2}>
-                <Grid container spacing={1} justifyContent="center" alignItems="center" height="100%">
-                    <Grid size={{ xs: 11, sm: 9, md: 5, lg: 4, xl: 3 }} >
-                        <Card>
-                            <MKBox
-                                variant="gradient"
-                                bgColor="secondary"
-                                borderRadius="lg"
-                                coloredShadow="info"
-                                mx={2}
-                                mt={-3}
-                                p={2}
-                                mb={1}
-                                textAlign="center"
-                            >
-                                <MKBox>
-                                    <MKTypography variant="h4" fontWeight="medium" color="white" mt={1}>
-                                        Cadastre-se
-                                    </MKTypography>
-                                </MKBox>
-                            </MKBox>
-                            <MKBox pt={3} pb={3} px={12}>
-                                <MKBox component="form" role="form" onSubmit={handleRegister}>
-                                    <MKBox mb={2}>
-                                        <MKInput variant="standard" label="Nome Completo" type="text" placeholder="Frank Vincent Zappa" value={name} onChange={(e) => setName(e.target.value)} required />
-                                    </MKBox>
-                                    <MKBox mb={2}>
-                                        <MKInput variant="standard" label="Email" type="email" placeholder="email@dominio.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                                    </MKBox>
-                                    <MKBox mb={2}>
-                                        <MKInput
-                                            variant="standard"
-                                            label="Senha"
-                                            type={showPassword ? "text" : "password"}
-                                            value={password}
-                                            onChange={handlePasswordChange}
-                                            required
-                                            InputProps={{
-                                                endAdornment: (
-                                                    <InputAdornment position="end">
-                                                        <IconButton
-                                                            onClick={() => setShowPassword(!showPassword)}
-                                                            edge="end"
-                                                            sx={{ fontSize: "20px" }}
-                                                        >
-                                                            {showPassword ? <VisibilityOff sx={{ fontSize: "20px" }} /> : <Visibility sx={{ fontSize: "20px" }} />}
-                                                        </IconButton>
-                                                    </InputAdornment>
-                                                ),
-                                            }}
-                                        />
-                                    </MKBox>
-                                    <MKBox mb={2}>
-                                        <MKInput
-                                            variant="standard"
-                                            label="Confirmar Senha"
-                                            type={showConfirmPassword ? "text" : "password"}
-                                            value={confirmPassword}
-                                            onChange={handleConfirmPasswordChange}
-                                            required
-                                            InputProps={{
-                                                endAdornment: (
-                                                    <InputAdornment position="end">
-                                                        <IconButton
-                                                            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                                                            edge="end"
-                                                            sx={{ fontSize: "20px" }}
-                                                        >
-                                                            {showConfirmPassword ? <VisibilityOff sx={{ fontSize: "20px" }}/> : <Visibility sx={{ fontSize: "20px" }}/>}
-                                                        </IconButton>
-                                                    </InputAdornment>
-                                                ),
-                                            }}
-                                        />
-                                        {errorMessage && (
-                                            <Typography
-                                                variant="caption"
-                                                color="error"
-                                                sx={{ display: "block", mt: 1 }}
-                                            >
-                                                {errorMessage}
-                                            </Typography>
-                                        )}
-                                    </MKBox>
-                                    <MKBox mt={4} mb={1}>
-                                        <MKButton variant="gradient" color="secondary" fullWidth type="submit">
-                                            Cadastrar
-                                        </MKButton>
+        <MKBox
+            display="flex"
+            flexDirection="column"
+            minHeight="100vh"
+        >
+            <MKBox flex="1">
+                <MKBox
+                    position="fixed"
+                    top={0}
+                    left={0}
+                    zIndex={-1}
+                    width="100%"
+                    height="100%"
+                    sx={{
+                        backgroundImage: ({ functions: { linearGradient, rgba }, palette: { gradients } }) =>
+                            `${linearGradient(
+                                rgba(gradients.dark.main, 0.6),
+                                rgba(gradients.dark.state, 0.6)
+                            )}, url(${bgImage})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
+                    }}
+                />
+                <MKBox px={1}
+                    width="100%"
+                    mx="auto"
+                    position="relative"
+                    zIndex={2}
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                    minHeight="92vh"
+                >
+                    <Grid
+                        container
+                        spacing={1}
+                        justifyContent="center"
+                        alignItems="center"
+                    >
+                        <Grid item xs={11} sm={9} md={5} lg={4} xl={3} >
+                            <Card>
+                                <MKBox
+                                    variant="gradient"
+                                    bgColor="secondary"
+                                    borderRadius="lg"
+                                    coloredShadow="info"
+                                    mx={2}
+                                    mt={-3}
+                                    p={2}
+                                    mb={1}
+                                    textAlign="center"
+                                >
+                                    <MKBox>
+                                        <MKTypography variant="h4" fontWeight="medium" color="white" mt={1}>
+                                            Cadastre-se
+                                        </MKTypography>
                                     </MKBox>
                                 </MKBox>
-                            </MKBox>
-                        </Card>
+                                <MKBox pt={3} pb={3} px={12}>
+                                    <MKBox component="form" role="form" onSubmit={handleRegister}>
+                                        <MKBox mb={2}>
+                                            <MKInput variant="standard" label="Nome Completo" type="text" placeholder="Frank Vincent Zappa" value={name} onChange={(e) => setName(e.target.value)} required />
+                                        </MKBox>
+                                        <MKBox mb={2}>
+                                            <MKInput variant="standard" label="Email" type="email" placeholder="email@dominio.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                                        </MKBox>
+                                        <MKBox mb={2}>
+                                            <MKInput
+                                                variant="standard"
+                                                label="Senha"
+                                                type={showPassword ? "text" : "password"}
+                                                value={password}
+                                                onChange={handlePasswordChange}
+                                                required
+                                                InputProps={{
+                                                    endAdornment: (
+                                                        <InputAdornment position="end">
+                                                            <IconButton
+                                                                onClick={() => setShowPassword(!showPassword)}
+                                                                edge="end"
+                                                                sx={{ fontSize: "20px" }}
+                                                            >
+                                                                {showPassword ? <VisibilityOff sx={{ fontSize: "20px" }} /> : <Visibility sx={{ fontSize: "20px" }} />}
+                                                            </IconButton>
+                                                        </InputAdornment>
+                                                    ),
+                                                }}
+                                            />
+                                        </MKBox>
+                                        <MKBox mb={2}>
+                                            <MKInput
+                                                variant="standard"
+                                                label="Confirmar Senha"
+                                                type={showConfirmPassword ? "text" : "password"}
+                                                value={confirmPassword}
+                                                onChange={handleConfirmPasswordChange}
+                                                required
+                                                InputProps={{
+                                                    endAdornment: (
+                                                        <InputAdornment position="end">
+                                                            <IconButton
+                                                                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                                                                edge="end"
+                                                                sx={{ fontSize: "20px" }}
+                                                            >
+                                                                {showConfirmPassword ? <VisibilityOff sx={{ fontSize: "20px" }} /> : <Visibility sx={{ fontSize: "20px" }} />}
+                                                            </IconButton>
+                                                        </InputAdornment>
+                                                    ),
+                                                }}
+                                            />
+                                            {errorMessage && (
+                                                <Typography
+                                                    variant="caption"
+                                                    color="error"
+                                                    sx={{ display: "block", mt: 1 }}
+                                                >
+                                                    {errorMessage}
+                                                </Typography>
+                                            )}
+                                        </MKBox>
+                                        <MKBox mt={4} mb={1}>
+                                            <MKButton variant="gradient" color="secondary" fullWidth type="submit">
+                                                Cadastrar
+                                            </MKButton>
+                                        </MKBox>
+                                    </MKBox>
+                                </MKBox>
+                            </Card>
+                        </Grid>
                     </Grid>
-                </Grid>
+                </MKBox>
             </MKBox>
-            <MKBox width="100%" position="absolute" zIndex={2} bottom="1.625rem">
+            <MKBox width="100%" position="relative" zIndex={2} mt={3} mb={2}>
                 <SimpleFooter light />
             </MKBox>
-        </>
+        </MKBox>
     );
 }
 
