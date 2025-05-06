@@ -107,7 +107,6 @@ function Bets() {
                     display="flex"
                     justifyContent="center"
                     alignItems="center"
-                    // minHeight="100vh"
                     mt={{ xs: "96px", md: "96px" }}
                     flexGrow={1}
                     py={{ xs: 0, lg: 6 }}>
@@ -181,9 +180,12 @@ function Bets() {
                                                                 placeholder="Ex: 3000"
                                                                 InputLabelProps={{ shrink: true }}
                                                                 fullWidth
-                                                                type="number"
+                                                                type="text"
                                                                 value={pesoInput}
-                                                                onChange={(e) => setPeso(e.target.value)}
+                                                                onChange={(e) => {
+                                                                    const value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+                                                                    setPeso(value);
+                                                                }}
                                                                 required
                                                             />
                                                         </Tooltip>
@@ -202,9 +204,12 @@ function Bets() {
                                                                 placeholder="Ex: 50"
                                                                 InputLabelProps={{ shrink: true }}
                                                                 fullWidth
-                                                                type="number"
+                                                                type="text"
                                                                 value={tamanhoInput}
-                                                                onChange={(e) => setTamanho(e.target.value)}
+                                                                onChange={(e) => {
+                                                                    const value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+                                                                    setTamanho(value);
+                                                                }}
                                                                 required
                                                             />
                                                         </Tooltip>

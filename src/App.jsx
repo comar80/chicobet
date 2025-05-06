@@ -17,6 +17,8 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import About from "./pages/About";
 import Gifts from "./pages/Gifts";
+import VerifyEmail from "./pages/VerifyEmail";
+
 
 import PrivateRoute from "./components/PrivateRoute";
 
@@ -42,6 +44,7 @@ function App() {
           <Route path="/success" element={<SubmittedForm />} />
           <Route path="/about" element={<About />} />
           <Route path="/gifts" element={<Gifts />} />
+          <Route path="/verify-email" element={<VerifyEmail />} />
         </Routes>
       </ThemeProvider>
     </>

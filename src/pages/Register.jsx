@@ -68,7 +68,7 @@ function Register() {
 
         } catch (error) {
             console.error("Erro ao cadastrar usuário:", error.response?.data || error.message);
-            alert("Falha ao salvar usuário.");
+            alert(error.response?.data?.message || "Erro ao cadastrar usuário");
         }
     };
 
@@ -138,7 +138,19 @@ function Register() {
                                             <MKInput variant="standard" label="Nome Completo" type="text" placeholder="Frank Vincent Zappa" value={name} onChange={(e) => setName(e.target.value)} required />
                                         </MKBox>
                                         <MKBox mb={2}>
-                                            <MKInput variant="standard" label="Email" type="email" placeholder="email@dominio.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                                            <MKInput
+                                                variant="standard"
+                                                label="Email"
+                                                type="email"
+                                                placeholder="email@dominio.com"
+                                                value={email}
+                                                onChange={(e) => setEmail(e.target.value)}
+                                                required
+                                                inputProps={{
+                                                    pattern: "[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$",
+                                                    title: "Ex: email@dominio.com",
+                                                }}
+                                            />
                                         </MKBox>
                                         <MKBox mb={2}>
                                             <MKInput

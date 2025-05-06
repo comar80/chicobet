@@ -89,14 +89,14 @@ function Login() {
                     display="flex"
                     justifyContent="center"
                     alignItems="center"
-                    minHeight="92vh" 
-                    >
+                    minHeight="92vh"
+                >
                     <Grid
                         container
                         spacing={1}
                         justifyContent="center"
                         alignItems="center"
-                        // minHeight="100%"
+                    // minHeight="100%"
                     >
                         <Grid item xs={11} sm={9} md={5} lg={4} xl={3} >
                             <Card>
@@ -121,7 +121,19 @@ function Login() {
                                 <MKBox pt={3} pb={3} px={12}>
                                     <MKBox component="form" role="form" onSubmit={handleLogin}>
                                         <MKBox mb={2}>
-                                            <MKInput variant="standard" label="Email" type="email" placeholder="email@dominio.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                                            <MKInput
+                                                variant="standard"
+                                                label="Email"
+                                                type="email"
+                                                placeholder="email@dominio.com"
+                                                value={email}
+                                                onChange={(e) => setEmail(e.target.value)}
+                                                required
+                                                inputProps={{
+                                                    pattern: "[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$",
+                                                    title: "Ex: email@dominio.com",
+                                                }}
+                                            />
                                         </MKBox>
                                         <MKBox mb={2}>
                                             <MKInput
