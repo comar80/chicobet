@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -19,11 +18,19 @@ function VerifyEmail() {
 
     const [searchParams] = useSearchParams();
     const token = searchParams.get('token');
+    const [verificationMessage, setVerificationMessage] = useState("");
+    const [showRetryButton, setShowRetryButton] = useState(false);
+    const hasRun = useRef(false);
+
 
     useEffect(() => {
+        if (hasRun.current) return;
+        hasRun.current = true;
+
         const verifyEmail = async () => {
             try {
                 const response = await axios.get(`http://localhost:5000/api/verify-email?token=${token}`);
+                setVerificationMessage("Email verificado com sucesso!");
                 console.log(response.data.message);
 
                 if (response.data.message === 'Email verified successfully') {
@@ -33,6 +40,12 @@ function VerifyEmail() {
                 }
             } catch (error) {
                 console.log(error.response?.data?.message || 'Something went wrong');
+                setVerificationMessage("Email já verificado ou token inválido");
+                // setTimeout(() => {
+                //     window.location.href = '/login';
+                // }, 10000);
+
+                setShowRetryButton(true);
             }
         };
 
@@ -100,12 +113,18 @@ function VerifyEmail() {
                                         },
                                     })}
                                 >
-                                    Email verificado com sucesso!
+                                    {verificationMessage}
                                 </MKTypography>
 
-                                <MKButton variant="outlined" color="light" href="/login" mt={3} mb={3}>
+                                <MKButton variant="outlined" color="light" href="/login" sx={{ mb: 3 }} >
                                     Faça o login
                                 </MKButton>
+
+                                {showRetryButton && ( // Conditionally render the retry button
+                                    <MKButton variant="outlined" color="light" href="/resend-email" sx={{ mb: 3 }} >
+                                        Reenviar verificação
+                                    </MKButton>
+                                )}
                             </Grid>
                         </Container>
                     </Grid>

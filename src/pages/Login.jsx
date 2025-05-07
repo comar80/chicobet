@@ -27,7 +27,6 @@ function Login() {
     const location = useLocation();
 
     useEffect(() => {
-        console.log("Location state:", location.state); // Debugging the state
 
         if (location.state?.showToast) {
             toast.error("Você precisa estar logado para apostar!");
@@ -129,6 +128,7 @@ function Login() {
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
                                                 required
+                                                fullWidth
                                                 inputProps={{
                                                     pattern: "[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$",
                                                     title: "Ex: email@dominio.com",
@@ -143,6 +143,7 @@ function Login() {
                                                 value={password}
                                                 onChange={(e) => setPassword(e.target.value)}
                                                 required
+                                                fullWidth
                                                 InputProps={{
                                                     endAdornment: (
                                                         <InputAdornment position="end">
