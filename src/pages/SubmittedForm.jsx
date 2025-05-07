@@ -30,8 +30,7 @@ function SubmittedForm() {
 
     useEffect(() => {
         if (!token) {
-            alert("Você precisa estar logado!");
-            navigate("/login");
+            navigate("/login", { state: { showToast: true } });
             return;
         }
 
@@ -41,7 +40,7 @@ function SubmittedForm() {
                     headers: { "Authorization": `Bearer ${token}` }
                 });
 
-                let data = response.data; // Store response data
+                let data = response.data;
 
                 data = {
                     ...data,
@@ -74,7 +73,7 @@ function SubmittedForm() {
     return (
         <>
             <DefaultNavbar
-                brand="BabyBet"
+                brand="ChicoBet"
 
             />
             <MKBox bgColor="white" minHeight="100vh" display="flex" flexDirection="column">
@@ -129,7 +128,7 @@ function SubmittedForm() {
                                                     Suas Apostas
                                                 </MKTypography>
                                                 <MKTypography variant="body2" color="white" opacity={0.8} mb={3}>
-                                                    Veja e edite as suas apostas
+                                                    Veja as suas apostas
                                                 </MKTypography>
                                             </MKBox>
                                         </MKBox>
@@ -179,7 +178,7 @@ function SubmittedForm() {
                                                         </Grid>
                                                     )}
                                                 </Grid>
-                                                <Grid
+                                                {/* <Grid
                                                     container
                                                     size={12}
                                                     justifyContent="center"
@@ -189,7 +188,7 @@ function SubmittedForm() {
                                                     <MKButton variant="gradient" color="secondary" onClick={handleEditClick}>
                                                         Editar
                                                     </MKButton>
-                                                </Grid>
+                                                </Grid> */}
                                             </MKBox>
                                         </MKBox>
                                     </Grid>

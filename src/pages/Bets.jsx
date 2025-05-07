@@ -11,6 +11,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Tooltip from "@mui/material/Tooltip";
+import Modal from "@mui/material/Modal";
+import Box from "@mui/material/Box";
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
@@ -32,6 +34,7 @@ function Bets() {
     const [tamanhoInput, setTamanho] = useState("");
     const [dataInput, setData] = useState("");
     const [sexoInput, setSexo] = useState("");
+    const [isModalOpen, setModalOpen] = useState(false);
 
     const token = localStorage.getItem("token");
     const decodedToken = token ? jwtDecode(token) : null;
@@ -39,8 +42,7 @@ function Bets() {
 
     useEffect(() => {
         if (!token) {
-            alert("Você precisa estar logado para apostar!");
-            navigate("/login");
+            navigate("/login", { state: { showToast: true } });
             return;
         }
 
@@ -61,8 +63,7 @@ function Bets() {
         fetchBet();
     }, [navigate, token]);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = async () => {
         const betData = { weight: pesoInput, size: tamanhoInput, date: dataInput, gender: sexoInput, userId: userId };
 
         try {
@@ -82,17 +83,30 @@ function Bets() {
         }
     };
 
+    const handleConfirm = () => {
+        setModalOpen(false);
+        handleSubmit();
+    };
+
+    const handleOpenModal = (e) => {
+        e.preventDefault();
+        setModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setModalOpen(false);
+    };
+
     return (
         <>
             <DefaultNavbar
-                brand="BabyBet"
+                brand="ChicoBet"
             />
             <MKBox bgColor="white" minHeight="100vh" display="flex" flexDirection="column">
                 <MKBox
                     display="flex"
                     justifyContent="center"
                     alignItems="center"
-                    // minHeight="100vh"
                     mt={{ xs: "96px", md: "96px" }}
                     flexGrow={1}
                     py={{ xs: 0, lg: 6 }}>
@@ -140,7 +154,7 @@ function Bets() {
                                         <MKBox
                                             component="form"
                                             role="form"
-                                            onSubmit={handleSubmit}
+                                            onSubmit={handleOpenModal}
                                             p={2}
                                         >
                                             <MKBox pt={0.5} pb={3} px={3}>
@@ -158,7 +172,7 @@ function Bets() {
                                                         {/* <MKTypography variant="body1" color="text" mb={2}>
                                                             <strong>Peso:</strong>
                                                         </MKTypography> */}
-                                                        <Tooltip title="O peso normal de um recém-nascido varia entre 3.000 e 4.000 gramas" placement="right">
+                                                        <Tooltip title="O peso normal de um recém-nascido varia entre 3000 e 4000 gramas" placement="right">
 
                                                             <MKInput
                                                                 variant="standard"
@@ -166,9 +180,12 @@ function Bets() {
                                                                 placeholder="Ex: 3000"
                                                                 InputLabelProps={{ shrink: true }}
                                                                 fullWidth
-                                                                type="number"
+                                                                type="text"
                                                                 value={pesoInput}
-                                                                onChange={(e) => setPeso(e.target.value)}
+                                                                onChange={(e) => {
+                                                                    const value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+                                                                    setPeso(value);
+                                                                }}
                                                                 required
                                                             />
                                                         </Tooltip>
@@ -187,9 +204,12 @@ function Bets() {
                                                                 placeholder="Ex: 50"
                                                                 InputLabelProps={{ shrink: true }}
                                                                 fullWidth
-                                                                type="number"
+                                                                type="text"
                                                                 value={tamanhoInput}
-                                                                onChange={(e) => setTamanho(e.target.value)}
+                                                                onChange={(e) => {
+                                                                    const value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+                                                                    setTamanho(value);
+                                                                }}
                                                                 required
                                                             />
                                                         </Tooltip>
@@ -259,48 +279,52 @@ function Bets() {
                     <SimpleFooter />
                 </MKBox>
             </MKBox >
+
+            {/* Modal de confirmação */}
+            <Modal
+                open={isModalOpen}
+                onClose={handleCloseModal}
+                aria-labelledby="modal-title"
+                aria-describedby="modal-description"
+            >
+                <Box
+                    sx={{
+                        position: "absolute",
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)",
+                        width: 400,
+                        bgcolor: "background.paper",
+                        boxShadow: 24,
+                        p: 4,
+                        borderRadius: 2,
+                    }}
+                >
+                    <MKTypography id="modal-title" variant="h6" component="h2" mb={1}>
+                        Confirmar Aposta
+                    </MKTypography>
+                    <MKTypography id="modal-description" variant="body2" mb={2}>
+                        A aposta é única e não pode ser alterada. Você tem certeza que deseja continuar?
+                    </MKTypography>
+                    <MKTypography id="modal-description" mb={2}>
+                        <strong>Peso:</strong> {pesoInput} g<br />
+                        <strong>Tamanho:</strong> {tamanhoInput} cm<br />
+                        <strong>Data:</strong> {dataInput.split("-").reverse().join("-")}<br />
+                        <strong>Sexo:</strong> {sexoInput === "male" ? "Menino" : "Menina"}
+                    </MKTypography>
+                    <Grid container justifyContent="space-between">
+                        <MKButton variant="outlined" color="secondary" onClick={handleCloseModal}>
+                            Cancelar
+                        </MKButton>
+                        <MKButton variant="gradient" color="secondary" onClick={handleConfirm}>
+                            Confirmar
+                        </MKButton>
+                    </Grid>
+                </Box>
+            </Modal>
+
+
         </>
-        // <main className="main-bets">
-        //     <h2>Apostas</h2>
-        //     <form onSubmit={handleSubmit}>
-        //         <div>
-        //             <label>Peso (kg):</label>
-        //             <input
-        //                 type="number"
-        //                 value={pesoInput}
-        //                 onChange={(e) => setPeso(e.target.value)}
-        //                 required
-        //             />
-        //         </div>
-        //         <div>
-        //             <label>Tamanho (cm):</label>
-        //             <input
-        //                 type="number"
-        //                 value={tamanhoInput}
-        //                 onChange={(e) => setTamanho(e.target.value)}
-        //                 required
-        //             />
-        //         </div>
-        //         <div>
-        //             <label>Data:</label>
-        //             <input
-        //                 type="date"
-        //                 value={dataInput}
-        //                 onChange={(e) => setData(e.target.value)}
-        //                 required
-        //             />
-        //         </div>
-        // <div>
-        //     <label>Sexo:</label>
-        //     <select value={sexoInput} onChange={(e) => setSexo(e.target.value)} required>
-        //         <option value="">Selecione</option>
-        //         <option value="male">Masculino</option>
-        //         <option value="female">Feminino</option>
-        //     </select>
-        // </div>
-        //         <button type="submit">Apostar</button>
-        //     </form>
-        // </main>
     );
 }
 

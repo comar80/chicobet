@@ -11,9 +11,9 @@ import CenteredBlogCard2 from "examples/Cards/BlogCards/CenteredBlogCard2";
 function Prizes() {
 
     const premios = [
-        { id: '1', titulo: "Premio 1", descricao: "Descrição Premio 1", imagem: "https://images.pexels.com/photos/31057725/pexels-photo-31057725/free-photo-of-bebida.jpeg", alt: "Photo 1" },
-        { id: '2', titulo: "Premio 2", descricao: "Descrição Premio 2", imagem: "https://images.pexels.com/photos/31057725/pexels-photo-31057725/free-photo-of-bebida.jpeg", alt: "Photo 2" },
-        { id: '3', titulo: "Premio 3", descricao: "Descrição Premio 3", imagem: "https://images.pexels.com/photos/31057725/pexels-photo-31057725/free-photo-of-bebida.jpeg", alt: "Photo 3" },
+        { id: '1', titulo: "Premio 1", descricao: "Em breve", imagem: "https://images.pexels.com/photos/31057725/pexels-photo-31057725/free-photo-of-bebida.jpeg", alt: "Photo 1" },
+        { id: '2', titulo: "Premio 2", descricao: "Em breve", imagem: "https://images.pexels.com/photos/31057725/pexels-photo-31057725/free-photo-of-bebida.jpeg", alt: "Photo 2" },
+        { id: '3', titulo: "Premio 3", descricao: "Em breve", imagem: "https://images.pexels.com/photos/31057725/pexels-photo-31057725/free-photo-of-bebida.jpeg", alt: "Photo 3" },
     ];
 
 

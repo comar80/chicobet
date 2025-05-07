@@ -21,11 +21,12 @@ function Home() {
         <>
             {/* <MKBox position="fixed" top="0.5rem" width="100%" zIndex={10}> */}
                 <DefaultNavbar
-                    brand="BabyBet"
+                    brand="ChicoBet"
                 />
             {/* </MKBox> */}
             <MKBox
                 minHeight="70vh"
+                height="450px"
                 width="100%"
                 sx={{
                     backgroundImage: ({ functions: { linearGradient, rgba }, palette: { gradients } }) =>
@@ -57,7 +58,7 @@ function Home() {
                                 },
                             })}
                         >
-                            Bem vindo à BabyBet
+                            Bem vindo à ChicoBet
                         </MKTypography>
                         <MKTypography variant="body1" color="light" opacity={0.8} mt={1} mb={3}>
                             Um jeito divertido de acompanhar o crescimento do Francisco com a gente! <br />

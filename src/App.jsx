@@ -15,6 +15,12 @@ import BetEdit from "./pages/BetEdit";
 import SubmittedForm from "./pages/SubmittedForm";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import About from "./pages/About";
+import Gifts from "./pages/Gifts";
+import VerifyEmail from "./pages/VerifyEmail";
+import ResendEmail from "./pages/ResendEmail";
+
+
 
 import PrivateRoute from "./components/PrivateRoute";
 
@@ -35,9 +41,13 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
-          <Route path="/bets" element={<PrivateRoute>  <Bets /> </PrivateRoute>} />
-          <Route path="/bet-edit" element={<BetEdit />} />
+          <Route path="/bets" element={ <Bets /> } />
+          {/* <Route path="/bet-edit" element={<BetEdit />} /> */}
           <Route path="/success" element={<SubmittedForm />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/gifts" element={<Gifts />} />
+          <Route path="/verify-email" element={<VerifyEmail />} />
+          <Route path="/resend-email" element={<ResendEmail />} />
         </Routes>
       </ThemeProvider>
     </>

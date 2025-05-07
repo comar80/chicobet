@@ -41,8 +41,7 @@ function BetEdit() {
 
     useEffect(() => {
         if (!token) {
-            alert("Você precisa estar logado!");
-            navigate("/login");
+            navigate("/login", { state: { showToast: true } });
             return;
         }
 
@@ -88,7 +87,7 @@ function BetEdit() {
     return (
         <>
             <DefaultNavbar
-                brand="BabyBet"
+                brand="ChicoBet"
             />
             <MKBox bgColor="white" minHeight="100vh" display="flex" flexDirection="column">
                 <MKBox

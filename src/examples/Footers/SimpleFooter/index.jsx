@@ -30,6 +30,7 @@ function SimpleFooter({light}) {
   const links =  [
     { href: "/", name: "Home" },
     { href: "/register", name: "Apostas" },
+    // { href: "/gifts", name: "Presentes" },
     { href: "/about", name: "Sobre" },
   ]
   const { size } = typography;
@@ -68,7 +69,7 @@ function SimpleFooter({light}) {
           color={light ? "white" : "text"}
           fontSize={size.sm}
         >
-          &copy; {new Date().getFullYear()} BabyBet
+          &copy; {new Date().getFullYear()} ChicoBet
         </MKBox>
         <MKBox
           component="ul"

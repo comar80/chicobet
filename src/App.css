@@ -208,7 +208,7 @@ main p {
   border: none;
   padding: 10px;
   cursor: pointer;
-  font-size: 30px;
+  font-size: 24px;
   z-index: 1100;
 }
 
@@ -338,4 +338,12 @@ main p {
   align-items: center;
   flex-direction: column;
   gap: 10px;
+}
+
+@media only screen and (max-width: 575px) {
+  .close-modal-card {
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+  }
 }
