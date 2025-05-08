@@ -17,7 +17,7 @@ Coded by www.creative-tim.com
 import { Fragment, useState, useEffect } from "react";
 
 // react-router components
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "context/AuthContext";
 
 
@@ -94,8 +94,40 @@ function DefaultNavbar({ brand, transparent, light, action, sticky, relative, ce
     }, 10);
   };
 
+  const { pathname } = useLocation();
+
   const routes = [
-    { name: "Apostas", route: "/bets"},
+    {
+      name: "Fotos",
+      onClick: () => {
+        if (pathname !== "/") {
+          navigate("/#fotos"); // Navigate to the homepage with the hash
+        } else {
+          document.getElementById("fotos").scrollIntoView({ behavior: "smooth" });
+        }
+      },
+    },
+    {
+      name: "Novidades",
+      onClick: () => {
+        if (pathname !== "/") {
+          navigate("/#novidades");
+        } else {
+          document.getElementById("novidades").scrollIntoView({ behavior: "smooth" });
+        }
+      },
+    },
+    {
+      name: "Prêmios",
+      onClick: () => {
+        if (pathname !== "/") {
+          navigate("/#premios");
+        } else {
+          document.getElementById("premios").scrollIntoView({ behavior: "smooth" });
+        }
+      },
+    },
+    { name: "Apostas", route: "/bets" },
     // { name: "Presentes", route: "/gifts" },
     { name: "Sobre", route: "/about" },
     user
