@@ -26,6 +26,8 @@ function Login() {
     const [showPassword, setShowPassword] = useState(false);
     const location = useLocation();
 
+    const API_URL = import.meta.env.VITE_API_URL;
+
     useEffect(() => {
 
         if (location.state?.showToast) {
@@ -37,7 +39,7 @@ function Login() {
         e.preventDefault();
 
         try {
-            const response = await axios.post("http://localhost:5000/api/login", {
+            const response = await axios.post(`${API_URL}/login`, {
                 email,
                 password
             });
@@ -50,7 +52,7 @@ function Login() {
 
         } catch (error) {
             console.error("Erro ao fazer login:", error);
-            alert("Email ou senha inválidos!");
+            toast.error("Email ou senha inválidos!");
         }
     };
 

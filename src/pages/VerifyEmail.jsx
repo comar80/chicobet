@@ -22,6 +22,7 @@ function VerifyEmail() {
     const [showRetryButton, setShowRetryButton] = useState(false);
     const hasRun = useRef(false);
 
+    const API_URL = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
         if (hasRun.current) return;
@@ -29,7 +30,7 @@ function VerifyEmail() {
 
         const verifyEmail = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/verify-email?token=${token}`);
+                const response = await axios.get(`${API_URL}verify-email?token=${token}`);
                 setVerificationMessage("Email verificado com sucesso!");
                 console.log(response.data.message);
 
@@ -52,7 +53,7 @@ function VerifyEmail() {
         if (token) {
             verifyEmail();
         }
-    }, [token]);
+    }, [token, API_URL]);
 
     return (
         <MKBox

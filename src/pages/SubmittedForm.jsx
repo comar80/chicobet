@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 // @mui material components
@@ -19,14 +19,12 @@ import SimpleFooter from "examples/Footers/SimpleFooter";
 
 
 function SubmittedForm() {
-    const location = useLocation();
     const navigate = useNavigate();
     const [betData, setBetData] = useState(null);
-    const [showMessage, setShowMessage] = useState(true);
-
-    const { message } = location.state || {};
 
     const token = localStorage.getItem("token");
+
+    const API_URL = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
         if (!token) {
@@ -36,7 +34,7 @@ function SubmittedForm() {
 
         const fetchBetData = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/bets/user`, {
+                const response = await axios.get(`${API_URL}/bets/user`, {
                     headers: { "Authorization": `Bearer ${token}` }
                 });
 
@@ -56,19 +54,13 @@ function SubmittedForm() {
         };
 
         fetchBetData();
+    }, [navigate, token, API_URL]);
 
-        const timer = setTimeout(() => {
-            setShowMessage(false);
-        }, 3000);
-
-        return () => clearTimeout(timer);
-    }, [navigate, token]);
-
-    const handleEditClick = () => {
-        if (betData) {
-            navigate("/bet-edit", { state: { bet: betData } });
-        }
-    };
+    // const handleEditClick = () => {
+    //     if (betData) {
+    //         navigate("/bet-edit", { state: { bet: betData } });
+    //     }
+    // };
 
     return (
         <>
@@ -77,11 +69,6 @@ function SubmittedForm() {
 
             />
             <MKBox bgColor="white" minHeight="100vh" display="flex" flexDirection="column">
-                {/* {showMessage && message && (
-                    <div className="success-message">
-                        {message}
-                    </div>
-                )} */}
                 <MKBox
                     display="flex"
                     justifyContent="center"

@@ -24,6 +24,7 @@ function Register() {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+    const API_URL = import.meta.env.VITE_API_URL;
 
     const navigate = useNavigate();
 
@@ -61,7 +62,7 @@ function Register() {
 
         const userData = { name, email, password };
         try {
-            const response = await axios.post("http://localhost:5000/api/users", userData, {
+            const response = await axios.post(`${API_URL}/users`, userData, {
                 headers: { "Content-Type": "application/json" },
             });
 
