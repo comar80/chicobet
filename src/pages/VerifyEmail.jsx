@@ -30,7 +30,7 @@ function VerifyEmail() {
 
         const verifyEmail = async () => {
             try {
-                const response = await axios.get(`${API_URL}verify-email?token=${token}`);
+                const response = await axios.get(`${API_URL}/verify-email?token=${token}`);
                 setVerificationMessage("Email verificado com sucesso!");
                 console.log(response.data.message);
 
@@ -42,9 +42,6 @@ function VerifyEmail() {
             } catch (error) {
                 console.log(error.response?.data?.message || 'Something went wrong');
                 setVerificationMessage("Email já verificado ou token inválido");
-                // setTimeout(() => {
-                //     window.location.href = '/login';
-                // }, 10000);
 
                 setShowRetryButton(true);
             }
