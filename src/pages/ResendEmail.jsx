@@ -19,11 +19,13 @@ function ResendEmail() {
 
     const navigate = useNavigate();
 
+    const API_URL = import.meta.env.VITE_API_URL;
+
     const handleResendEmail = async (e) => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:5000/api/resend-verification-email', { email });
+            const response = await axios.post(`${API_URL}/resend-verification-email`, { email });
             console.log("Email de verificação reenviado:", response.data);
 
             toast.success("Email enviado! Acesse seu email para confirmá-lo. Cheque o Spam caso não encontre na caixa de entrada", {

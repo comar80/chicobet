@@ -2,6 +2,8 @@ import React from "react";
 import Carousel from "../components/Carousel";
 import News from "../components/News";
 import Prizes from "../components/Prizes";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -17,14 +19,28 @@ import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import bgImage from "assets/images/babybet-bg1.jpg";
 
 function Home() {
+    const { hash } = useLocation();
+
+    useEffect(() => {
+        if (hash) {
+            const element = document.getElementById(hash.replace("#", ""));
+            if (element) {
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }, 800);
+            }
+        }
+    }, [hash]);
+
     return (
         <>
             {/* <MKBox position="fixed" top="0.5rem" width="100%" zIndex={10}> */}
-                <DefaultNavbar
-                    brand="ChicoBet"
-                />
+            <DefaultNavbar
+                brand="ChicoBet"
+            />
             {/* </MKBox> */}
             <MKBox
+                id="header"
                 minHeight="70vh"
                 height="450px"
                 width="100%"
@@ -40,7 +56,7 @@ function Home() {
                     placeItems: "center",
                 }}
             >
-                <Container>
+                <Container >
                     <Grid
                         container
                         size={{ xs: 12, lg: 8 }}
@@ -80,14 +96,20 @@ function Home() {
                     bgcolor: ({ palette }) => palette.light.main
                 }}
             >
-                <Carousel />
-                <News />
-                <Prizes />
+                <div id="fotos">
+                    <Carousel />
+                </div>
+                <div id="novidades">
+                    <News />
+                </div>
+                <div id="premios">
+                    <Prizes />
+                </div>
 
             </Card>
 
             <MKBox pb={3} >
-            <SimpleFooter />
+                <SimpleFooter />
             </MKBox>
 
         </>

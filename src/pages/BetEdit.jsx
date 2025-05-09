@@ -39,6 +39,8 @@ function BetEdit() {
     const decodedToken = token ? jwtDecode(token) : null;
     const userId = decodedToken?.userId;
 
+    const API_URL = import.meta.env.VITE_API_URL;
+
     useEffect(() => {
         if (!token) {
             navigate("/login", { state: { showToast: true } });
@@ -47,7 +49,7 @@ function BetEdit() {
 
         const fetchBetData = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/bets/user`, {
+                const response = await axios.get(`${API_URL}/bets/user`, {
                     headers: { "Authorization": `Bearer ${token}` }
                 });
 
@@ -64,14 +66,14 @@ function BetEdit() {
         };
 
         fetchBetData();
-    }, [navigate, token, userId]);
+    }, [navigate, token, userId, API_URL]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const betData = { weight: pesoInput, size: tamanhoInput, date: dataInput, gender: sexoInput, userId: userId };
 
         try {
-            const response = await axios.put(`http://localhost:5000/api/bets/${betId}`, betData, {
+            const response = await axios.put(`${API_URL}/api/bets/${betId}`, betData, {
                 headers: { "Authorization": `Bearer ${token}` }
             });
 

@@ -25,13 +25,57 @@ import MKTypography from "components/MKTypography";
 // Material Kit 2 React base styles
 import typography from "assets/theme/base/typography";
 
+import { useNavigate, useLocation } from "react-router-dom";
+
+
 function SimpleFooter({light}) {
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const links =  [
-    { href: "/", name: "Home" },
-    { href: "/register", name: "Apostas" },
+    {
+      name: "Home",
+      onClick: () => {
+        if (pathname !== "/") {
+          navigate("/#header"); // Navigate to the homepage with the hash
+        } else {
+          document.getElementById("header").scrollIntoView({ behavior: "smooth" });
+        }
+      },
+    },
+    {
+      name: "Fotos",
+      onClick: () => {
+        if (pathname !== "/") {
+          navigate("/#fotos"); // Navigate to the homepage with the hash
+        } else {
+          document.getElementById("fotos").scrollIntoView({ behavior: "smooth" });
+        }
+      },
+    },
+    {
+      name: "Novidades",
+      onClick: () => {
+        if (pathname !== "/") {
+          navigate("/#novidades");
+        } else {
+          document.getElementById("novidades").scrollIntoView({ behavior: "smooth" });
+        }
+      },
+    },
+    {
+      name: "Prêmios",
+      onClick: () => {
+        if (pathname !== "/") {
+          navigate("/#premios");
+        } else {
+          document.getElementById("premios").scrollIntoView({ behavior: "smooth" });
+        }
+      },
+    },
+    { name: "Apostas", onClick: () => navigate("/bets") },
     // { href: "/gifts", name: "Presentes" },
-    { href: "/about", name: "Sobre" },
+    { name: "Sobre", onClick: () => navigate("/about") },
   ]
   const { size } = typography;
 
@@ -44,7 +88,11 @@ function SimpleFooter({light}) {
         pr={key === links.length - 1 ? 0 : 2}
         lineHeight={1}
       >
-        <Link href={link.href} >
+        <Link
+          component="button" // Use a button to handle onClick
+          onClick={link.onClick}
+          sx={{ textDecoration: "none", cursor: "pointer" }}
+        >
           <MKTypography variant="button" fontWeight="regular" color={light ? "white" : "text"} sx={{ textTransform: "none" }}>
             {link.name}
           </MKTypography>
