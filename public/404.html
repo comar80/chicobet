@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Redirecionando...</title>
+    <script>
+        // Extract everything after "/babybet"
+        const redirectPath = window.location.pathname.replace(/^\/babybet/, '');
+        const newUrl = '/babybet/#' + redirectPath + window.location.search + window.location.hash;
+
+        // Redirect once to the hash-based path
+        if (!window.location.hash) {
+            window.location.replace(newUrl);
+        }
+    </script>
+</head>
+
+<body>
+    <p>Redirecionando para a aplicação...</p>
+</body>
+
+</html>

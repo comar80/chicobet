@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import Container from "@mui/material/Container";
@@ -21,6 +21,7 @@ function VerifyEmail() {
     const [verificationMessage, setVerificationMessage] = useState("");
     const [showRetryButton, setShowRetryButton] = useState(false);
     const hasRun = useRef(false);
+    const navigate = useNavigate();
 
     const API_URL = import.meta.env.VITE_API_URL;
 
@@ -36,7 +37,7 @@ function VerifyEmail() {
 
                 if (response.data.message === 'Email verified successfully') {
                     setTimeout(() => {
-                        window.location.href = '/login';
+                        navigate("/login");
                     }, 5000);
                 }
             } catch (error) {
@@ -114,12 +115,12 @@ function VerifyEmail() {
                                     {verificationMessage}
                                 </MKTypography>
 
-                                <MKButton variant="outlined" color="light" href="/login" sx={{ mb: 3 }} >
+                                <MKButton variant="outlined" color="light" href="/babybet/login" sx={{ mb: 3 }} >
                                     Faça o login
                                 </MKButton>
 
                                 {showRetryButton && ( // Conditionally render the retry button
-                                    <MKButton variant="outlined" color="light" href="/resend-email" sx={{ mb: 3 }} >
+                                    <MKButton variant="outlined" color="light" href="/babybet/resend-email" sx={{ mb: 3 }} >
                                         Reenviar verificação
                                     </MKButton>
                                 )}

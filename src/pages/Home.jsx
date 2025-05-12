@@ -80,7 +80,7 @@ function Home() {
                             Um jeito divertido de acompanhar o crescimento do Francisco com a gente! <br />
                             Para apostar e concorrer aos prêmios crie uma conta.
                         </MKTypography>
-                        <MKButton variant="outlined" color="light" href="/register">
+                        <MKButton variant="outlined" color="light" href="/babybet/register">
                             Criar conta
                         </MKButton>
                     </Grid>

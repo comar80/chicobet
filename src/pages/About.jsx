@@ -163,7 +163,7 @@ function About() {
                                 >
                                     Para apostar crie seu cadastro.
                                 </MKTypography>
-                                <MKButton variant="outlined" color="dark" href="/register" mt={3} mb={3}>
+                                <MKButton variant="outlined" color="dark" href="/babybet/register" mt={3} mb={3}>
                                     Criar conta
                                 </MKButton>
                             </MKBox>

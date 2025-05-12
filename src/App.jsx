@@ -38,16 +38,17 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Routes>
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="login" element={<Login />} />
           <Route path="/" element={<Home />} />
-          <Route path="/bets" element={ <Bets /> } />
-          {/* <Route path="/bet-edit" element={<BetEdit />} /> */}
-          <Route path="/success" element={<SubmittedForm />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/gifts" element={<Gifts />} />
-          <Route path="/verify-email" element={<VerifyEmail />} />
-          <Route path="/resend-email" element={<ResendEmail />} />
+          <Route path="bets" element={ <Bets /> } />
+          {/* <Route path="bet-edit" element={<BetEdit />} /> */}
+          <Route path="success" element={<SubmittedForm />} />
+          <Route path="about" element={<About />} />
+          <Route path="gifts" element={<Gifts />} />
+          <Route path="verify-email" element={<VerifyEmail />} />
+          <Route path="resend-email" element={<ResendEmail />} />
+          <Route path="*" element={<h1>Página não encontrada</h1>} />
         </Routes>
       </ThemeProvider>
     </>

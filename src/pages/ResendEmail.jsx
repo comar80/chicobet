@@ -52,6 +52,9 @@ function ResendEmail() {
                 draggable: true,
                 progress: undefined,
             });
+            setTimeout(() => {
+                navigate("/login");
+            }, 10000);
         }
     };
 
