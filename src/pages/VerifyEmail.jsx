@@ -51,7 +51,7 @@ function VerifyEmail() {
         if (token) {
             verifyEmail();
         }
-    }, [token, API_URL]);
+    }, [token, API_URL, navigate]);
 
     return (
         <MKBox
