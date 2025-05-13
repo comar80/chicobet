@@ -2,8 +2,8 @@ import React from "react";
 import Carousel from "../components/Carousel";
 import News from "../components/News";
 import Prizes from "../components/Prizes";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, Link } from "react-router-dom";
 
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -20,8 +20,12 @@ import bgImage from "assets/images/babybet-bg1.jpg";
 
 function Home() {
     const { hash } = useLocation();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
+        const user = localStorage.getItem("token");
+        setIsLoggedIn(!!user);
+
         if (hash) {
             const element = document.getElementById(hash.replace("#", ""));
             if (element) {
@@ -78,11 +82,19 @@ function Home() {
                         </MKTypography>
                         <MKTypography variant="body1" color="light" opacity={0.8} mt={1} mb={3}>
                             Um jeito divertido de acompanhar o crescimento do Francisco com a gente! <br />
-                            Para apostar e concorrer aos prêmios crie uma conta.
+                            {isLoggedIn
+                                ? "Estamos felizes em vê-lo aqui! Aproveite as novidades"
+                                : "Para apostar e concorrer aos prêmios faça o login ou crie uma conta."}
                         </MKTypography>
-                        <MKButton variant="outlined" color="light" href="/babybet/register">
-                            Criar conta
-                        </MKButton>
+                        {!isLoggedIn && (
+                            <MKButton
+                                variant="outlined"
+                                color="light"
+                                component={Link}
+                                to="/register">
+                                Criar conta
+                            </MKButton>
+                        )}
                     </Grid>
                 </Container>
             </MKBox>

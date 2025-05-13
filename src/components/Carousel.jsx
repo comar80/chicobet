@@ -12,6 +12,8 @@ function Carousel() {
     const [selectedImage, setSelectedImage] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(null);
     const [photos, setPhotos] = useState([]);
+    const [isNavigationEnabled, setIsNavigationEnabled] = useState(false);
+
 
     useEffect(() => {
         getCloudinaryImages().then(data => {
@@ -19,6 +21,17 @@ function Carousel() {
                 setPhotos(data);
             }
         });
+
+        const updateNavigation = () => {
+            setIsNavigationEnabled(window.innerWidth >= 900);
+        };
+
+        updateNavigation();
+        window.addEventListener("resize", updateNavigation);
+
+        return () => {
+            window.removeEventListener("resize", updateNavigation);
+        };
     }, []);
 
     const handleImageClick = (index) => {
@@ -57,6 +70,8 @@ function Carousel() {
                 pagination={{
                     clickable: true
                 }}
+
+                navigation={isNavigationEnabled}
 
                 breakpoints={{
                     0: {

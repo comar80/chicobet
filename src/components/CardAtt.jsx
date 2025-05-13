@@ -93,21 +93,22 @@ function CardAtt() {
                             >
                                 {selectedCard.description}
                             </MKTypography>
-                            <MKTypography 
-                            variant="body1" 
-                            color="dark.gradient" 
-                            opacity={0.8} 
-                            mt={1} 
-                            mb={1}
-                            sx={({ breakpoints }) => ({
-                                textAlign: "justify",
-                                fontSize: "1.1rem",
-                                [breakpoints.down("md")]: {
-                                    fontSize: "1rem",
-                                },
-                                [breakpoints.down("sm")]: {
-                                    fontSize: "0.9rem",                                },
-                            })}
+                            <MKTypography
+                                variant="body1"
+                                color="dark.gradient"
+                                opacity={0.8}
+                                mt={1}
+                                mb={1}
+                                sx={({ breakpoints }) => ({
+                                    textAlign: "justify",
+                                    fontSize: "1.1rem",
+                                    [breakpoints.down("md")]: {
+                                        fontSize: "1rem",
+                                    },
+                                    [breakpoints.down("sm")]: {
+                                        fontSize: "0.9rem",
+                                    },
+                                })}
                             >
                                 {selectedCard.text}
                             </MKTypography>
@@ -124,6 +125,7 @@ function CardAtt() {
                                         slidesPerView="auto"
                                         spaceBetween={10}
                                         loop={true}
+                                        navigation={isNavigationEnabled}
                                         pagination={{ clickable: true }}
                                         modules={[Pagination, Navigation]}
 
@@ -194,12 +196,27 @@ function CardAtt() {
         </div>
     );
 
+    const [isNavigationEnabled, setIsNavigationEnabled] = useState(false);
+
+
     useEffect(() => {
         getCardsJson().then(data => {
             if (data) {
                 setCards(data);
             }
         });
+
+
+        const updateNavigation = () => {
+            setIsNavigationEnabled(window.innerWidth >= 900);
+        };
+
+        updateNavigation();
+        window.addEventListener("resize", updateNavigation);
+
+        return () => {
+            window.removeEventListener("resize", updateNavigation);
+        };
     }, []);
 
     const handleCardClick = (index) => {
@@ -232,6 +249,7 @@ function CardAtt() {
                     slidesPerView={1}
                     spaceBetween={10}
                     loop={true}
+                    navigation={isNavigationEnabled}
                     pagination={{ clickable: true }}
                     modules={[Pagination, Navigation]}
 
@@ -242,7 +260,7 @@ function CardAtt() {
                         },
                         600: {
                             slidesPerView: 2,
-                            spaceBetween: 10
+                            spaceBetween: 10,
                         },
                         900: {
                             slidesPerView: 3,

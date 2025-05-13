@@ -44,7 +44,12 @@ function Login() {
                 password
             });
 
-            const { token } = response.data;
+            const { token, isVerified } = response.data;
+
+            if (!isVerified) {
+                toast.error("Email não verificado. Por favor, acesse o link enviado para seu email. Cheque sua caixa de entrada ou spam.");
+                return;
+            }
 
             localStorage.setItem("token", token);
             login(token);
@@ -166,7 +171,7 @@ function Login() {
                                                 Entrar
                                             </MKButton>
                                         </MKBox>
-                                        <MKBox mt={3} mb={1} textAlign="center">
+                                        <MKBox mt={3} textAlign="center">
                                             <MKTypography variant="button" color="text">
                                                 Não tem uma conta?{" "}
                                                 <MKTypography
@@ -179,6 +184,32 @@ function Login() {
                                                 >
                                                     Cadastre-se
                                                 </MKTypography>
+                                            </MKTypography>
+                                        </MKBox>
+                                        <MKBox textAlign="center">
+                                            <MKTypography
+                                                component={Link}
+                                                to="/send-reset-password"
+                                                variant="button"
+                                                color="info"
+                                                fontWeight="medium"
+                                                textGradient
+                                                sx={{ fontSize: "0.8rem" }}
+                                            >
+                                                Esqueceu a senha?
+                                            </MKTypography>
+                                        </MKBox>
+                                        <MKBox textAlign="center">
+                                            <MKTypography
+                                                component={Link}
+                                                to="/resend-email"
+                                                variant="button"
+                                                color="info"
+                                                fontWeight="medium"
+                                                textGradient
+                                                sx={{ fontSize: "0.8rem" }}
+                                            >
+                                                Reenviar email de verificação
                                             </MKTypography>
                                         </MKBox>
                                     </MKBox>

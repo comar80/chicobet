@@ -68,7 +68,7 @@ function SubmittedForm() {
                 brand="ChicoBet"
 
             />
-            <MKBox bgColor="white" minHeight="100vh" display="flex" flexDirection="column">
+            <MKBox bgColor="light" variant="gradient" minHeight="100vh" display="flex" flexDirection="column">
                 <MKBox
                     display="flex"
                     justifyContent="center"
@@ -112,10 +112,10 @@ function SubmittedForm() {
                                         >
                                             <MKBox py={6} pr={6} pl={{ xs: 6, sm: 12 }} my="auto">
                                                 <MKTypography variant="h3" color="white" mb={1}>
-                                                    Suas Apostas
+                                                    Sua Aposta
                                                 </MKTypography>
                                                 <MKTypography variant="body2" color="white" opacity={0.8} mb={3}>
-                                                    Veja as suas apostas
+                                                    Veja a sua aposta
                                                 </MKTypography>
                                             </MKBox>
                                         </MKBox>

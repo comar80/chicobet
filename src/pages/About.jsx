@@ -142,7 +142,7 @@ function About() {
                                     Após o nascimento, os três participantes que somarem mais pontos ganham os prêmios.
                                     Participe dessa experiência divertida e emocionante enquanto aguardamos a chegada do pequeno!
                                 </MKTypography>
-                                <MKTypography
+                                {/* <MKTypography
                                     variant="body1"
                                     color="dark"
                                     mt={1}
@@ -165,7 +165,7 @@ function About() {
                                 </MKTypography>
                                 <MKButton variant="outlined" color="dark" href="/babybet/register" mt={3} mb={3}>
                                     Criar conta
-                                </MKButton>
+                                </MKButton> */}
                             </MKBox>
                         </Card>
                     </Grid>

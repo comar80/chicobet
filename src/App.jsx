@@ -19,8 +19,8 @@ import About from "./pages/About";
 import Gifts from "./pages/Gifts";
 import VerifyEmail from "./pages/VerifyEmail";
 import ResendEmail from "./pages/ResendEmail";
-
-
+import SendResetPasswordLink from "./pages/SendResetPasswordLink";
+import PasswordReset from "./pages/PasswordReset";
 
 import PrivateRoute from "./components/PrivateRoute";
 
@@ -41,13 +41,16 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
           <Route path="/" element={<Home />} />
-          <Route path="bets" element={ <Bets /> } />
+          <Route path="bets" element={<Bets />} />
           {/* <Route path="bet-edit" element={<BetEdit />} /> */}
           <Route path="success" element={<SubmittedForm />} />
           <Route path="about" element={<About />} />
           <Route path="gifts" element={<Gifts />} />
           <Route path="verify-email" element={<VerifyEmail />} />
           <Route path="resend-email" element={<ResendEmail />} />
+          <Route path="send-reset-password" element={<SendResetPasswordLink />} />
+          <Route path="password-reset" element={<PasswordReset />} />
+
           <Route path="*" element={<h1>Página não encontrada</h1>} />
         </Routes>
       </ThemeProvider>

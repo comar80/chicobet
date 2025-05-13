@@ -88,10 +88,16 @@ function DefaultNavbar({ brand, transparent, light, action, sticky, relative, ce
 
   const handleLogout = () => {
     console.log("Logout");
-    navigate("/");
-    setTimeout(() => {
+    if (pathname === "/") {
       logout();
-    }, 10);
+      window.location.reload();
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        logout();
+      }, 10);
+    }
+
   };
 
   const { pathname } = useLocation();

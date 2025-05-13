@@ -104,7 +104,7 @@ function Bets() {
             <DefaultNavbar
                 brand="ChicoBet"
             />
-            <MKBox bgColor="white" minHeight="100vh" display="flex" flexDirection="column">
+            <MKBox bgColor="light" variant="gradient" minHeight="100vh" display="flex" flexDirection="column">
                 <MKBox
                     display="flex"
                     justifyContent="center"
@@ -305,8 +305,8 @@ function Bets() {
                     <MKTypography id="modal-title" variant="h6" component="h2" mb={1}>
                         Confirmar Aposta
                     </MKTypography>
-                    <MKTypography id="modal-description" variant="body2" mb={2}>
-                        A aposta é única e não pode ser alterada. Você tem certeza que deseja continuar?
+                    <MKTypography id="modal-description" variant="body2" color="error" mb={2}>
+                        <strong>A aposta é única e não pode ser alterada. Você tem certeza que deseja continuar?</strong>
                     </MKTypography>
                     <MKTypography id="modal-description" mb={2}>
                         <strong>Peso:</strong> {pesoInput} g<br />

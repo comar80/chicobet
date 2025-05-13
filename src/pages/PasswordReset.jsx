@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,25 +8,25 @@ import MKButton from "components/MKButton";
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import MKInput from "components/MKInput";
-import { Card, Container, Grid, Typography, IconButton, InputAdornment } from "@mui/material";
+import { Card, Grid, InputAdornment, IconButton, Typography } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 import bgImage from "assets/images/babybet-bg1.jpg";
 import SimpleFooter from "examples/Footers/SimpleFooter";
 
 
-function Register() {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
+function PasswordReset() {
+    const [searchParams] = useSearchParams();
+    const token = searchParams.get('token');
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-    const API_URL = import.meta.env.VITE_API_URL;
-
     const navigate = useNavigate();
+
+    const API_URL = import.meta.env.VITE_API_URL;
 
     const handlePasswordChange = (e) => {
         const newPassword = e.target.value;
@@ -50,43 +50,15 @@ function Register() {
         }
     };
 
-    const handleRegister = async (e) => {
+    const handleResetPassword = async (e) => {
         e.preventDefault();
 
-        if (password !== confirmPassword) {
-            setErrorMessage("As senhas não coincidem");
-            return;
-        }
-
-        setErrorMessage("");
-
-        const userData = { name, email, password };
         try {
-            const response = await axios.post(`${API_URL}/users`, userData, {
-                headers: { "Content-Type": "application/json" },
-            });
+            const response = await axios.post(`${API_URL}/reset-password`, { newPassword: password, token });
+            console.log("Senha redefinida", response.data);
+            console.log("token", token);
 
-            console.log("Usuário cadastrado:", response.data);
-
-            // Show success toast
-            toast.success("Cadastro realizado! Acesse seu email para confirmá-lo. Cheque o Spam caso não encontre na caixa de entrada", {
-                position: "top-right",
-                autoClose: 10000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
-
-            // Redirect after a short delay
-            setTimeout(() => {
-                navigate("/login");
-            }, 10000);
-
-        } catch (error) {
-            console.error("Erro ao cadastrar usuário:", error.response?.data || error.message);
-            toast.error(error.response?.data?.message || "Erro ao cadastrar usuário", {
+            toast.success("Senha redefinida com sucesso!", {
                 position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -96,6 +68,20 @@ function Register() {
                 progress: undefined,
             });
 
+            setTimeout(() => {
+                navigate("/login");
+            }, 5000);
+        } catch (error) {
+            console.error("Erro ao redefinir senha", error.response?.data || error.message);
+            toast.error(error.response?.data?.message || "Erro ao redefinir senha", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
             setTimeout(() => {
                 navigate("/login");
             }, 5000);
@@ -147,7 +133,13 @@ function Register() {
                             alignItems="center"
                         >
                             <Grid item xs={11} sm={9} md={5} lg={4} xl={3} >
-                                <Card>
+                                <Card
+                                    sx={{
+                                        maxWidth: "500px",
+                                        width: "100%",
+                                        margin: "0 auto",
+                                    }}
+                                >
                                     <MKBox
                                         variant="gradient"
                                         bgColor="secondary"
@@ -161,31 +153,24 @@ function Register() {
                                     >
                                         <MKBox>
                                             <MKTypography variant="h4" fontWeight="medium" color="white" mt={1}>
-                                                Cadastre-se
+                                                Redefinir Senha
                                             </MKTypography>
                                         </MKBox>
                                     </MKBox>
+                                    <MKTypography
+                                        variant="body1"
+                                        color="dark"
+                                        mt={1}
+                                        mx={3}
+                                        sx={() => ({
+                                            textAlign: "center",
+                                            fontSize: "1rem",
+                                        })}
+                                    >
+                                        Entre com a sua nova senha
+                                    </MKTypography>
                                     <MKBox pt={3} pb={3} px={12}>
-                                        <MKBox component="form" role="form" onSubmit={handleRegister}>
-                                            <MKBox mb={2}>
-                                                <MKInput variant="standard" label="Nome Completo" type="text" placeholder="Frank Vincent Zappa" value={name} onChange={(e) => setName(e.target.value)} required fullWidth/>
-                                            </MKBox>
-                                            <MKBox mb={2}>
-                                                <MKInput
-                                                    variant="standard"
-                                                    label="Email"
-                                                    type="email"
-                                                    placeholder="email@dominio.com"
-                                                    value={email}
-                                                    onChange={(e) => setEmail(e.target.value)}
-                                                    required
-                                                    fullWidth
-                                                    inputProps={{
-                                                        pattern: "[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$",
-                                                        title: "Ex: email@dominio.com",
-                                                    }}
-                                                />
-                                            </MKBox>
+                                        <MKBox component="form" role="form" onSubmit={handleResetPassword}>
                                             <MKBox mb={2}>
                                                 <MKInput
                                                     variant="standard"
@@ -245,7 +230,7 @@ function Register() {
                                             </MKBox>
                                             <MKBox mt={4} mb={1}>
                                                 <MKButton variant="gradient" color="secondary" fullWidth type="submit">
-                                                    Cadastrar
+                                                    Enviar
                                                 </MKButton>
                                             </MKBox>
                                         </MKBox>
@@ -263,4 +248,4 @@ function Register() {
     );
 }
 
-export default Register;
+export default PasswordReset;
