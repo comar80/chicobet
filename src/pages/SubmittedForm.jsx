@@ -132,7 +132,7 @@ function SubmittedForm() {
                                                     height="100%">
                                                     {betData ? (
                                                         <>
-                                                            <Grid xs={12} pr={1} mb={6}>
+                                                            <Grid xs={12} pr={1} mt={6} mb={6}>
                                                                 {betData.weight &&
                                                                     <MKTypography variant="body1" color="text" mb={2}>
                                                                         <strong>Peso:</strong> {betData.weight} g
