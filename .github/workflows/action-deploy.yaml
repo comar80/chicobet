@@ -39,6 +39,12 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+        env:
+          VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
+          VITE_FILE_ID: ${{ secrets.VITE_FILE_ID }}
+          VITE_IMAGE_FOLDER_ID: ${{ secrets.VITE_IMAGE_FOLDER_ID }}
+          VITE_CARD_FOLDER_ID: ${{ secrets.VITE_CARD_FOLDER_ID }}
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
