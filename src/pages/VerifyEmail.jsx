@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useSearchParams, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
 import Container from "@mui/material/Container";
@@ -115,12 +115,16 @@ function VerifyEmail() {
                                     {verificationMessage}
                                 </MKTypography>
 
-                                <MKButton variant="outlined" color="light" href="/babybet/login" sx={{ mb: 3 }} >
+                                <MKButton 
+                                variant="outlined" 
+                                color="light"
+                                component={Link} 
+                                to="/login" sx={{ mb: 3 }} >
                                     Faça o login
                                 </MKButton>
 
-                                {showRetryButton && ( // Conditionally render the retry button
-                                    <MKButton variant="outlined" color="light" href="/babybet/resend-email" sx={{ mb: 3 }} >
+                                {showRetryButton && (
+                                    <MKButton variant="outlined" color="light" component={Link}  to="/resend-email" sx={{ mb: 3 }} >
                                         Reenviar verificação
                                     </MKButton>
                                 )}
