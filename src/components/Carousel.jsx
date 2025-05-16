@@ -95,7 +95,7 @@ function Carousel() {
                 modules={[Pagination, Navigation, Autoplay]}
             >
                 {photos.map((photo, index) => (
-                    <SwiperSlide>
+                    <SwiperSlide key={index}>
                         <img
                             key={index}
                             src={photo.url}
