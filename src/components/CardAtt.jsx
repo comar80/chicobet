@@ -164,9 +164,23 @@ function CardAtt() {
                                 <MKBox
                                     sx={{
                                         position: "relative",
-                                        width: "100%",
-                                        paddingTop: "56.25%", /* 16:9 Aspect Ratio */
-                                        marginTop: 3
+                                        width: {
+                                            xs: "130%",
+                                            sm: "100%",
+                                            md: "100%",
+                                        },
+                                        left: {
+                                            xs: "-8vw",
+                                            sm: 0,
+                                            md: 0,
+                                        },
+                                        paddingTop: {
+                                            xs: "75%",      // 4:3 aspect ratio
+                                            sm: "75%",
+                                            md: "56.25%",   // 16:9 for medium screens and up
+                                        },
+                                        marginTop: 3,
+                                        borderRadius: "10px",
                                     }}
                                 >
                                     <iframe
