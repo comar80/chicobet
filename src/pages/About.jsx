@@ -109,15 +109,15 @@ function About() {
                                         fontSize: "1.1rem",
                                         [breakpoints.down("md")]: {
                                             fontSize: "1rem",
-                                            mx:3
+                                            mx: 3
                                         },
                                         [breakpoints.down("sm")]: {
                                             fontSize: "0.9rem",
-                                            mx:2
+                                            mx: 2
                                         },
                                     })}
                                 >
-                                    Bem-vindo à ChicoBet, um espaço criado para celebrar e acompanhar a jornada do nosso bebê!
+                                    Você está na ChicoBet, um espaço criado para celebrar e acompanhar a jornada do Chico Bruce!
                                 </MKTypography>
                                 <MKTypography
                                     variant="body1"
@@ -129,18 +129,81 @@ function About() {
                                         fontSize: "1.1rem",
                                         [breakpoints.down("md")]: {
                                             fontSize: "1rem",
-                                            mx:3
+                                            mx: 3
                                         },
                                         [breakpoints.down("sm")]: {
                                             fontSize: "0.9rem",
-                                            mx:2
+                                            mx: 2
                                         },
                                     })}
                                 >
-                                    Aqui você pode explorar fotos e atualizações semanais sobre o desenvolvimento do Francisco e escolher um presente antecipado para o chá de bebê.
-                                    Além disso, na área de apostas você pode dar seu palpite sobre as características do bebê, como peso, altura e data de nascimento.
-                                    Após o nascimento, os três participantes que somarem mais pontos ganham os prêmios.
+                                    Aqui você encontra fotos e atualizações semanais sobre o desenvolvimento do Francisco e, se quiser, pode escolher um presente para o bebê.
+                                    Além disso, na área de apostas você pode dar seu palpite sobre as características do Chiquinho, como peso, altura e data de nascimento. Quando ele chegar, os três participantes que chegarem mais perto e somarem mais pontos ganham os prêmios.
                                     Participe dessa experiência divertida e emocionante enquanto aguardamos a chegada do pequeno!
+                                </MKTypography>
+                                <MKTypography
+                                    variant="body1"
+                                    color="dark"
+                                    mt={2}
+                                    mx={6}
+                                    sx={({ breakpoints }) => ({
+                                        textAlign: "justify",
+                                        fontSize: "1.1rem",
+                                        [breakpoints.down("md")]: {
+                                            fontSize: "1rem",
+                                            mx: 3
+                                        },
+                                        [breakpoints.down("sm")]: {
+                                            fontSize: "0.9rem",
+                                            mx: 2
+                                        },
+                                    })}
+                                >
+                                    <span style={{ display: "block", textAlign: "center", fontWeight: "bold", marginBottom: 8 }}>
+                                        Regulamento das apostas:
+                                    </span>
+                                    <ul>
+                                        <li>As apostas podem ser feitas até 24 horas antes do parto. </li>
+                                        <li>
+                                            Cada palpite será comparado com os dados reais do bebê após o nascimento. A pontuação será atribuída com base na proximidade de cada palpite, seguindo as regras abaixo:
+                                            <br />
+                                            <br />
+                                            <ul>
+                                                <li style={{ textAlign: "center", fontWeight: "bold", listStyle: "none" }}>
+                                                    Peso (máximo de 5 pontos)
+                                                </li>
+                                                <ul style={{ textAlign: "center", listStyle: "none" }}>
+                                                    <li>Diferença de até 50g: 5 pontos</li>
+                                                    <li>Diferença de 51g a 100g: 4 pontos</li>
+                                                    <li>Diferença de 101g a 200g: 3 pontos</li>
+                                                    <li>Diferença de 201g a 300g: 2 pontos</li>
+                                                    <li>Diferença de 301g a 400g: 1 ponto</li>
+                                                    <li>Diferença acima de 400g: 0 pontos</li>
+                                                </ul>
+                                                <li style={{ textAlign: "center", fontWeight: "bold", listStyle: "none" }}>
+                                                    Tamanho (0 a 3 pontos)
+                                                </li>
+                                                <ul style={{ textAlign: "center", listStyle: "none" }}>
+                                                    <li>Até 1 cm: 3 pontos</li>
+                                                    <li>De 2 cm: 2 pontos</li>
+                                                    <li>De 3 cm: 1 pontos</li>
+                                                    <li>Acima 3 cm: 0 pontos</li>
+                                                </ul>
+                                                <li style={{ textAlign: "center", fontWeight: "bold", listStyle: "none" }}>
+                                                    Data de nascimento (0 a 2 pontos)
+                                                </li>
+                                                <ul style={{ textAlign: "center", listStyle: "none" }}>
+                                                    <li>Exato: 2 pontos</li>
+                                                    <li>Até 1 dia: 1 ponto</li>
+                                                    <li>Acima de 1 dia: 0 pontos</li>
+                                                </ul>
+                                            </ul>
+                                        </li >
+                                        <br />
+                                        <li> Os três participantes que somarem mais pontos ganharão os prêmios de acordo com a pontuação</li>
+                                        <li>Se houver empate de pontos entre duas apostas a que foi feita primeiro terá prioridade</li>
+                                        <br />
+                                    </ul>
                                 </MKTypography>
                                 {/* <MKTypography
                                     variant="body1"
