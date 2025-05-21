@@ -167,7 +167,6 @@ function About() {
                                         <li>
                                             Cada palpite será comparado com os dados reais do bebê após o nascimento. A pontuação será atribuída com base na proximidade de cada palpite, seguindo as regras abaixo:
                                             <br />
-                                            <br />
                                             <ul>
                                                 <li style={{ textAlign: "center", fontWeight: "bold", listStyle: "none" }}>
                                                     Peso (máximo de 5 pontos)
@@ -184,10 +183,10 @@ function About() {
                                                     Tamanho (0 a 3 pontos)
                                                 </li>
                                                 <ul style={{ textAlign: "center", listStyle: "none" }}>
-                                                    <li>Até 1 cm: 3 pontos</li>
-                                                    <li>De 2 cm: 2 pontos</li>
-                                                    <li>De 3 cm: 1 pontos</li>
-                                                    <li>Acima 3 cm: 0 pontos</li>
+                                                    <li>Diferença de até 1cm: 3 pontos</li>
+                                                    <li>Diferença de até 2cm: 2 pontos</li>
+                                                    <li>Diferença de até 3cm: 1 pontos</li>
+                                                    <li>Acima de 3 cm: 0 pontos</li>
                                                 </ul>
                                                 <li style={{ textAlign: "center", fontWeight: "bold", listStyle: "none" }}>
                                                     Data de nascimento (0 a 2 pontos)

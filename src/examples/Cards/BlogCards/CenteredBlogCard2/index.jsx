@@ -28,19 +28,24 @@ import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import MKButton from "components/MKButton";
 
-function CenteredBlogCard2({ image, title, description }) {
+function CenteredBlogCard2({ image, title, description, alt }) {
   return (
-    <Card >
+    <Card sx={{
+      height: "100%",
+      display: "flex",
+      flexDirection: "column",
+      backgroundColor: "light.main",
+    }}>
       <MKBox position="relative" borderRadius="lg" mx={2} mt={-3}>
         <MKBox
           component="img"
           src={image}
-          alt={title}
+          alt={alt}
           borderRadius="lg"
           width="100%"
           sx={{
             height: "40vh",
-            objectFit: "cover",
+            objectFit: "contain",
             mt: "30px",
           }}
           position="relative"
@@ -66,7 +71,7 @@ function CenteredBlogCard2({ image, title, description }) {
         <MKTypography display="inline" variant="h5" textTransform="capitalize" fontWeight="regular">
           {title}
         </MKTypography>
-        <MKBox mt={1} mb={3}>
+        <MKBox mt={1} mb={0}>
           <MKTypography variant="body2" component="p" color="text">
             {description}
           </MKTypography>
