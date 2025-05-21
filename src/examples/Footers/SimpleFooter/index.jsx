@@ -28,11 +28,11 @@ import typography from "assets/theme/base/typography";
 import { useNavigate, useLocation } from "react-router-dom";
 
 
-function SimpleFooter({light}) {
+function SimpleFooter({ light }) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  const links =  [
+  const links = [
     {
       name: "Home",
       onClick: () => {
@@ -74,7 +74,7 @@ function SimpleFooter({light}) {
       },
     },
     { name: "Apostas", onClick: () => navigate("/bets") },
-    // { href: "/gifts", name: "Presentes" },
+    { name: "Presentes", href: "https://chicobet.sumupstore.com/" },
     { name: "Sobre", onClick: () => navigate("/about") },
   ]
   const { size } = typography;
@@ -88,15 +88,28 @@ function SimpleFooter({light}) {
         pr={key === links.length - 1 ? 0 : 2}
         lineHeight={1}
       >
-        <Link
-          component="button" // Use a button to handle onClick
-          onClick={link.onClick}
-          sx={{ textDecoration: "none", cursor: "pointer" }}
-        >
-          <MKTypography variant="button" fontWeight="regular" color={light ? "white" : "text"} sx={{ textTransform: "none" }}>
-            {link.name}
-          </MKTypography>
-        </Link>
+        {link.href ? (
+          <Link
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{ textDecoration: "none", cursor: "pointer" }}
+          >
+            <MKTypography variant="button" fontWeight="regular" color={light ? "white" : "text"} sx={{ textTransform: "none" }}>
+              {link.name}
+            </MKTypography>
+          </Link>
+        ) : (
+          <Link
+            component="button"
+            onClick={link.onClick}
+            sx={{ textDecoration: "none", cursor: "pointer" }}
+          >
+            <MKTypography variant="button" fontWeight="regular" color={light ? "white" : "text"} sx={{ textTransform: "none" }}>
+              {link.name}
+            </MKTypography>
+          </Link>
+        )}
       </MKBox>
     ));
 
