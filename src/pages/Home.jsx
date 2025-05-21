@@ -83,7 +83,7 @@ function Home() {
                         <MKTypography variant="body1" color="light" opacity={0.8} mt={1} mb={3}>
                             Um jeito divertido de acompanhar o crescimento do Francisco com a gente! <br />
                             {isLoggedIn
-                                ? "Estamos felizes em vê-lo aqui! Aproveite as novidades"
+                                ? "Aproveite as novidades e aposte para concorrer aos prêmios!"
                                 : "Para apostar e concorrer aos prêmios faça o login ou crie uma conta."}
                         </MKTypography>
                         {!isLoggedIn && (
@@ -93,6 +93,16 @@ function Home() {
                                 component={Link}
                                 to="/register">
                                 Criar conta
+                            </MKButton>
+                        )}
+                        {isLoggedIn && (
+                            <MKButton
+                                variant="outlined"
+                                color="light"
+                                component={Link}
+                                to="/bets"
+                            >
+                                Apostar
                             </MKButton>
                         )}
                     </Grid>

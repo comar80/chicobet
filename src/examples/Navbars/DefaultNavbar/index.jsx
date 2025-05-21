@@ -114,7 +114,7 @@ function DefaultNavbar({ brand, transparent, light, action, sticky, relative, ce
       },
     },
     {
-      name: "Novidades",
+      name: "Atualizações",
       onClick: () => {
         if (pathname !== "/") {
           navigate("/#novidades");
@@ -133,12 +133,12 @@ function DefaultNavbar({ brand, transparent, light, action, sticky, relative, ce
         }
       },
     },
-    { name: "Apostas", route: "/bets" },
+    { name: "Aposta", route: "/bets" },
+    { name: "Sobre", route: "/about" },
     {
     name: "Presentes",
     href: "https://chicobet.sumupstore.com/",
   },
-  { name: "Sobre", route: "/about" },
     user
       ? { name: "Logout", route: "/", onClick: handleLogout }
       : { name: "Login", route: "/login" },

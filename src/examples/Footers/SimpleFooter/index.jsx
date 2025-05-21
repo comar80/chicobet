@@ -54,7 +54,7 @@ function SimpleFooter({ light }) {
       },
     },
     {
-      name: "Novidades",
+      name: "Atualizações",
       onClick: () => {
         if (pathname !== "/") {
           navigate("/#novidades");
@@ -73,9 +73,9 @@ function SimpleFooter({ light }) {
         }
       },
     },
-    { name: "Apostas", onClick: () => navigate("/bets") },
-    { name: "Presentes", href: "https://chicobet.sumupstore.com/" },
+    { name: "Aposta", onClick: () => navigate("/bets") },
     { name: "Sobre", onClick: () => navigate("/about") },
+    { name: "Presentes", href: "https://chicobet.sumupstore.com/" }
   ]
   const { size } = typography;
 
