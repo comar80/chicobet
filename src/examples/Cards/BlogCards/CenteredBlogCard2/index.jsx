@@ -32,9 +32,13 @@ function CenteredBlogCard2({ image, title, description, alt }) {
   return (
     <Card sx={{
       height: "100%",
+      width: "98%",
       display: "flex",
       flexDirection: "column",
-      backgroundColor: "light.main",
+      backgroundColor: "background.default",
+      boxShadow: 3,
+      mt: 1,
+      mb: 1,
     }}>
       <MKBox position="relative" borderRadius="lg" mx={2} mt={-3}>
         <MKBox
@@ -44,8 +48,8 @@ function CenteredBlogCard2({ image, title, description, alt }) {
           borderRadius="lg"
           width="100%"
           sx={{
-            height: "40vh",
-            objectFit: "cover",
+            height: "180px",
+            objectFit: "contain",
             mt: "30px",
           }}
           position="relative"

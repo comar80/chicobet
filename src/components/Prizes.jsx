@@ -10,9 +10,12 @@ import CenteredBlogCard2 from "examples/Cards/BlogCards/CenteredBlogCard2";
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import image1 from "assets/images/numero-1.png";
+import image2 from "assets/images/numero-2.png";
+import image3 from "assets/images/numero-3.png";
 
 function Prizes() {
-    const isMobile = useMediaQuery('(max-width:768px)');
+    const isMobile = useMediaQuery('(max-width:991px)');
 
 
     const premios = [
@@ -20,21 +23,21 @@ function Prizes() {
             id: '1',
             titulo: "Assinatura gratuita do “Chicoflix” + Bebida a sua escolha até R$150",
             descricao: "Acesso a imagens exclusivas das melhores caretas, choros e sorrisos do bebê, com episódios novos toda semana (até ele pedir para parar ou a gente cansar)",
-            imagem: "assets/images/numero-1.jpg", 
+            imagem: image1,
             alt: "Photo 1"
         },
         {
             id: '2',
             titulo: "Foto autografada da primeira papinha espalhada no rosto inteiro + Bebida a sua escolha até R$100",
             descricao: "Uma obra de arte moderna, com assinatura borrada de purezinho de cenoura e uma garrafa bebida a escolha do ganhador de até R$100",
-            imagem: "assets/images/numero-2.jpg",
+            imagem: image2,
             alt: "Photo 2"
         },
         {
             id: '3',
             titulo: "Pacote de figurinhas do Chiquinho + Bebida a sua escolha até R$50",
             descricao: "Reações exclusivas no whatsapp para surpreender a todos com essa fofura e uma garrafa bebida a escolha do ganhador de até R$50.",
-            imagem: "assets/images/numero-3.jpg",
+            imagem: image3,
             alt: "Photo 3"
         },
     ];
@@ -69,12 +72,13 @@ function Prizes() {
                                     <SwiperSlide key={premio.id}
                                     >
                                         <MKBox
-                                            style={{
+                                            sx={{
                                                 display: 'flex',
                                                 justifyContent: 'center',
-                                                alignItems: 'stretch',
-                                                height: '620px',
-                                                width: '100%',
+                                                alignItems: 'center',
+                                                height: '100%',
+                                                // mt: 1,
+                                                // mb: 2,
                                             }}
                                         >
                                             <CenteredBlogCard2
