@@ -72,7 +72,7 @@ function CenteredBlogCard2({ image, title, description, alt }) {
         /> */}
       </MKBox>
       <MKBox p={3} mt={-1} textAlign="center">
-        <MKTypography display="inline" variant="h5" textTransform="capitalize" fontWeight="regular">
+        <MKTypography display="inline" variant="h5" fontWeight="regular">
           {title}
         </MKTypography>
         <MKBox mt={1} mb={0}>

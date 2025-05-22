@@ -182,7 +182,7 @@ function About() {
                                         })}
                                     >
                                         <ul>
-                                            <li>As apostas podem ser feitas até 24 horas antes do parto. </li>
+                                            <li>As apostas serão encerradas a caminho da maternidade </li>
                                             <li>
                                                 Cada palpite será comparado com os dados reais do bebê após o nascimento. A pontuação será atribuída com base na proximidade de cada palpite, seguindo as regras abaixo:
                                                 <br />
@@ -193,11 +193,12 @@ function About() {
                                                     <ul style={{ textAlign: "center", listStyle: "none" }}>
                                                         <li>Diferença de até 50g: 5 pontos</li>
                                                         <li>Diferença de 51g a 100g: 4 pontos</li>
-                                                        <li>Diferença de 101g a 200g: 3 pontos</li>
-                                                        <li>Diferença de 201g a 300g: 2 pontos</li>
-                                                        <li>Diferença de 301g a 400g: 1 ponto</li>
-                                                        <li>Diferença acima de 400g: 0 pontos</li>
+                                                        <li>Diferença de 101g a 150g: 3 pontos</li>
+                                                        <li>Diferença de 151g a 200g: 2 pontos</li>
+                                                        <li>Diferença de 201g a 250g: 1 ponto</li>
+                                                        <li>Diferença acima de 250g: 0 pontos</li>
                                                     </ul>
+                                                    <br />
                                                     <li style={{ textAlign: "center", fontWeight: "bold", listStyle: "none" }}>
                                                         Tamanho (0 a 3 pontos)
                                                     </li>
@@ -207,6 +208,7 @@ function About() {
                                                         <li>Diferença de até 3cm: 1 pontos</li>
                                                         <li>Acima de 3 cm: 0 pontos</li>
                                                     </ul>
+                                                    <br />
                                                     <li style={{ textAlign: "center", fontWeight: "bold", listStyle: "none" }}>
                                                         Data de nascimento (0 a 2 pontos)
                                                     </li>

@@ -21,21 +21,21 @@ function Prizes() {
     const premios = [
         {
             id: '1',
-            titulo: "Assinatura gratuita do “Chicoflix” + Bebida a sua escolha até R$150",
+            titulo: "Assinatura gratuita do “Chicoflix” + Bebida à sua escolha de até R$150",
             descricao: "Acesso a imagens exclusivas das melhores caretas, choros e sorrisos do bebê, com episódios novos toda semana (até ele pedir para parar ou a gente cansar)",
             imagem: image1,
             alt: "Photo 1"
         },
         {
             id: '2',
-            titulo: "Foto autografada da primeira papinha espalhada no rosto inteiro + Bebida a sua escolha até R$100",
+            titulo: "Foto autografada da primeira papinha espalhada no rosto inteiro + Bebida à sua escolha de até R$100",
             descricao: "Uma obra de arte moderna, com assinatura borrada de purezinho de cenoura e uma garrafa bebida a escolha do ganhador de até R$100",
             imagem: image2,
             alt: "Photo 2"
         },
         {
             id: '3',
-            titulo: "Pacote de figurinhas do Chiquinho + Bebida a sua escolha até R$50",
+            titulo: "Pacote de figurinhas do Chiquinho + Bebida à sua escolha de até R$50",
             descricao: "Reações exclusivas no whatsapp para surpreender a todos com essa fofura e uma garrafa bebida a escolha do ganhador de até R$50.",
             imagem: image3,
             alt: "Photo 3"
