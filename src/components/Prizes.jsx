@@ -20,21 +20,21 @@ function Prizes() {
             id: '1',
             titulo: "Assinatura gratuita do “Chicoflix” + Bebida a sua escolha até R$150",
             descricao: "Acesso a imagens exclusivas das melhores caretas, choros e sorrisos do bebê, com episódios novos toda semana (até ele pedir para parar ou a gente cansar)",
-            imagem: "/src/assets/images/numero-1.jpg",
+            imagem: "assets/images/numero-1.jpg", 
             alt: "Photo 1"
         },
         {
             id: '2',
             titulo: "Foto autografada da primeira papinha espalhada no rosto inteiro + Bebida a sua escolha até R$100",
             descricao: "Uma obra de arte moderna, com assinatura borrada de purezinho de cenoura e uma garrafa bebida a escolha do ganhador de até R$100",
-            imagem: "/src/assets/images/numero-2.jpg",
+            imagem: "assets/images/numero-2.jpg",
             alt: "Photo 2"
         },
         {
             id: '3',
             titulo: "Pacote de figurinhas do Chiquinho + Bebida a sua escolha até R$50",
             descricao: "Reações exclusivas no whatsapp para surpreender a todos com essa fofura e uma garrafa bebida a escolha do ganhador de até R$50.",
-            imagem: "/src/assets/images/numero-3.jpg",
+            imagem: "assets/images/numero-3.jpg",
             alt: "Photo 3"
         },
     ];
