@@ -45,7 +45,7 @@ function CenteredBlogCard2({ image, title, description, alt }) {
           width="100%"
           sx={{
             height: "40vh",
-            objectFit: "contain",
+            objectFit: "cover",
             mt: "30px",
           }}
           position="relative"
