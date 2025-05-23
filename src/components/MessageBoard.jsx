@@ -116,7 +116,7 @@ function MessageBoard() {
                     mt: 3,
                     height: 250,
                     overflowY: "auto",
-                    bgcolor: "background.paper",
+                    bgcolor: "background.default",
                     borderRadius: 1,
                     boxShadow: 1,
                     p: 1,
@@ -133,6 +133,8 @@ function MessageBoard() {
                                     alignItems: "center",
                                     justifyContent: "center",
                                     height: "100%",
+                                    backgroundColor: "background.default",
+                                    boxShadow: 3,
                                 }}
                             >
                                 <MKTypography variant="body2" color="text.secondary" align="center">
@@ -148,7 +150,9 @@ function MessageBoard() {
                                     minHeight: 220,
                                     display: "flex",
                                     flexDirection: "column",
-                                    justifyContent: "center"
+                                    justifyContent: "center",
+                                    backgroundColor: "background.default",
+                                    boxShadow: 3,
                                 }}>
                                     <MKTypography variant="subtitle1" >
                                         {msg.name}
