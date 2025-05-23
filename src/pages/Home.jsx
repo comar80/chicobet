@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "../components/Carousel";
 import News from "../components/News";
 import Prizes from "../components/Prizes";
+import MessageBoard from "../components/MessageBoard";
 import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 
@@ -126,6 +127,10 @@ function Home() {
                 </div>
                 <div id="premios">
                     <Prizes />
+                </div>
+
+                <div id="recados">
+                    <MessageBoard />
                 </div>
 
             </Card>
