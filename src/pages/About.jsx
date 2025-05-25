@@ -137,7 +137,7 @@ function About() {
                                         },
                                     })}
                                 >
-                                    Aqui você encontra fotos e atualizações semanais sobre o desenvolvimento do Francisco e, se quiser, pode escolher um presente para o bebê.
+                                    Aqui você encontra fotos e atualizações semanais sobre o desenvolvimento do Francisco e, se quiser, pode deixar um recado e escolher um presente para o bebê.
                                     Além disso, na área de apostas você pode dar seu palpite sobre as características do Chiquinho, como peso, altura e data de nascimento. Quando ele chegar, os três participantes que chegarem mais perto e somarem mais pontos ganham os prêmios.
                                     Participe dessa experiência divertida e emocionante enquanto aguardamos a chegada do pequeno!
                                 </MKTypography>
