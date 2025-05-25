@@ -264,7 +264,7 @@ function CardAtt() {
                     spaceBetween={10}
                     loop={true}
                     navigation={isNavigationEnabled}
-                    pagination={{ clickable: true }}
+                    pagination={{ clickable: true, dynamicBullets: true }}
                     modules={[Pagination, Navigation]}
 
                     breakpoints={{
@@ -283,7 +283,7 @@ function CardAtt() {
                     }}
                 >
                     {cards.map((card, index) => (
-                        <SwiperSlide key={card.id} className="card-att">
+                        <SwiperSlide key={card.id} className="card-att" >
                             <CenteredBlogCard
                                 image={card.images[0]}
                                 title={card.description}

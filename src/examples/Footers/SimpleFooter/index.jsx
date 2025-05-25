@@ -37,17 +37,18 @@ function SimpleFooter({ light }) {
       name: "Home",
       onClick: () => {
         if (pathname !== "/") {
-          navigate("/#header"); // Navigate to the homepage with the hash
+          navigate("/#header");
         } else {
           document.getElementById("header").scrollIntoView({ behavior: "smooth" });
         }
       },
     },
+    { name: "Sobre", onClick: () => navigate("/about") },
     {
       name: "Fotos",
       onClick: () => {
         if (pathname !== "/") {
-          navigate("/#fotos"); // Navigate to the homepage with the hash
+          navigate("/#fotos");
         } else {
           document.getElementById("fotos").scrollIntoView({ behavior: "smooth" });
         }
@@ -74,7 +75,6 @@ function SimpleFooter({ light }) {
       },
     },
     { name: "Aposta", onClick: () => navigate("/bets") },
-    { name: "Sobre", onClick: () => navigate("/about") },
     { name: "Presentes", href: "https://chicobet.sumupstore.com/" }
   ]
   const { size } = typography;

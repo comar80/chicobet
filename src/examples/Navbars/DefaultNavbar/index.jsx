@@ -103,6 +103,7 @@ function DefaultNavbar({ brand, transparent, light, action, sticky, relative, ce
   const { pathname } = useLocation();
 
   const routes = [
+    { name: "Sobre", route: "/about" },
     {
       name: "Fotos",
       onClick: () => {
@@ -134,11 +135,10 @@ function DefaultNavbar({ brand, transparent, light, action, sticky, relative, ce
       },
     },
     { name: "Aposta", route: "/bets" },
-    { name: "Sobre", route: "/about" },
     {
-    name: "Presentes",
-    href: "https://chicobet.sumupstore.com/",
-  },
+      name: "Presentes",
+      href: "https://chicobet.sumupstore.com/",
+    },
     user
       ? { name: "Logout", route: "/", onClick: handleLogout }
       : { name: "Login", route: "/login" },

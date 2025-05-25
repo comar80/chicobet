@@ -156,8 +156,8 @@ function About() {
                                 >
                                     <Container>
                                         <Grid container>
-                                            <Grid size={{ xs: 12, md: 8 }} sx={{ mb: 2 }}>
-                                                <MKTypography variant="h5" color="white">
+                                            <Grid size={{ xs: 12, md: 12 }} sx={{ mb: 2, textAlign: "center" }}>
+                                                <MKTypography variant="h5" color="white" >
                                                     Regulamento das Apostas
                                                 </MKTypography>
                                             </Grid>
@@ -186,43 +186,77 @@ function About() {
                                             <li>
                                                 Cada palpite será comparado com os dados reais do bebê após o nascimento. A pontuação será atribuída com base na proximidade de cada palpite, seguindo as regras abaixo:
                                                 <br />
-                                                <ul>
-                                                    <li style={{ textAlign: "center", fontWeight: "bold", listStyle: "none" }}>
-                                                        Peso (máximo de 5 pontos)
-                                                    </li>
-                                                    <ul style={{ textAlign: "center", listStyle: "none" }}>
-                                                        <li>Diferença de até 50g: 5 pontos</li>
-                                                        <li>Diferença de 51g a 100g: 4 pontos</li>
-                                                        <li>Diferença de 101g a 150g: 3 pontos</li>
-                                                        <li>Diferença de 151g a 200g: 2 pontos</li>
-                                                        <li>Diferença de 201g a 250g: 1 ponto</li>
-                                                        <li>Diferença acima de 250g: 0 pontos</li>
-                                                    </ul>
+                                                <MKBox
+                                                    display="flex"
+                                                    flexDirection={{ xs: "column", md: "row" }}
+                                                    justifyContent="space-between"
+                                                    alignItems="flex-start"
+                                                    gap={0}
+                                                    mt={2}
+                                                    mb={2}
+                                                >
+                                                    <div>
+                                                        <li style={{
+                                                            textAlign: "center",
+                                                            fontWeight: "bold",
+                                                            listStyle: "none"
+                                                        }}>
+                                                            Peso (máximo de 5 pontos)
+                                                        </li>
+                                                        <ul style={{
+                                                            textAlign: "center",
+                                                            listStyle: "none"
+                                                        }}>
+                                                            <li>Diferença de até 50g: 5 pontos</li>
+                                                            <li>Diferença de 51g a 100g: 4 pontos</li>
+                                                            <li>Diferença de 101g a 150g: 3 pontos</li>
+                                                            <li>Diferença de 151g a 200g: 2 pontos</li>
+                                                            <li>Diferença de 201g a 250g: 1 ponto</li>
+                                                            <li>Diferença acima de 250g: 0 pontos</li>
+                                                        </ul>
+                                                    </div>
                                                     <br />
-                                                    <li style={{ textAlign: "center", fontWeight: "bold", listStyle: "none" }}>
-                                                        Tamanho (0 a 3 pontos)
-                                                    </li>
-                                                    <ul style={{ textAlign: "center", listStyle: "none" }}>
-                                                        <li>Diferença de até 1cm: 3 pontos</li>
-                                                        <li>Diferença de até 2cm: 2 pontos</li>
-                                                        <li>Diferença de até 3cm: 1 pontos</li>
-                                                        <li>Acima de 3 cm: 0 pontos</li>
-                                                    </ul>
+                                                    <div>
+                                                        <li style={{
+                                                            textAlign: "center", 
+                                                            fontWeight: "bold",
+                                                            listStyle: "none"
+                                                        }}>
+                                                            Tamanho (0 a 3 pontos)
+                                                        </li>
+                                                        <ul style={{
+                                                            textAlign: "center", 
+                                                            listStyle: "none"
+                                                        }}>
+                                                            <li>Diferença de até 1cm: 3 pontos</li>
+                                                            <li>Diferença de até 2cm: 2 pontos</li>
+                                                            <li>Diferença de até 3cm: 1 pontos</li>
+                                                            <li>Acima de 3 cm: 0 pontos</li>
+                                                        </ul>
+                                                    </div>
                                                     <br />
-                                                    <li style={{ textAlign: "center", fontWeight: "bold", listStyle: "none" }}>
-                                                        Data de nascimento (0 a 2 pontos)
-                                                    </li>
-                                                    <ul style={{ textAlign: "center", listStyle: "none" }}>
-                                                        <li>Exato: 2 pontos</li>
-                                                        <li>Até 1 dia: 1 ponto</li>
-                                                        <li>Acima de 1 dia: 0 pontos</li>
-                                                    </ul>
-                                                </ul>
+                                                    <div>
+                                                        <li style={{
+                                                            textAlign: "center", 
+                                                            fontWeight: "bold",
+                                                            listStyle: "none"
+                                                        }}>
+                                                            Data de nascimento (0 a 2 pontos)
+                                                        </li>
+                                                        <ul style={{
+                                                            textAlign: "center", 
+                                                            listStyle: "none"
+                                                        }}>
+                                                            <li>Exato: 2 pontos</li>
+                                                            <li>Até 1 dia: 1 ponto</li>
+                                                            <li>Acima de 1 dia: 0 pontos</li>
+                                                        </ul>
+                                                    </div>
+
+                                                </MKBox>
                                             </li >
-                                            <br />
                                             <li> Os três participantes que somarem mais pontos ganharão os prêmios de acordo com a colocação</li>
                                             <li>Se houver empate de pontos entre duas apostas a que foi feita primeiro terá prioridade</li>
-                                            <br />
                                         </ul>
                                     </MKTypography>
 

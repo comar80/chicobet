@@ -68,7 +68,7 @@ function Carousel() {
                 }}
                 loop={true}
                 pagination={{
-                    clickable: true
+                    clickable: true, dynamicBullets: true,
                 }}
 
                 navigation={isNavigationEnabled}
