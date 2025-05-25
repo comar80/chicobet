@@ -188,14 +188,13 @@ function About() {
                                                 <br />
                                                 <MKBox
                                                     display="flex"
-                                                    flexDirection={{ xs: "column", md: "row" }}
+                                                    flexDirection={{ xs: "column", md: "column", lg: "row" }}
                                                     justifyContent="space-between"
-                                                    alignItems="flex-start"
-                                                    gap={0}
+                                                    alignItems={{ xs: "center", md: "center", lg: "flex-start" }}
+                                                    gap={{lg: 3}}
                                                     mt={2}
-                                                    mb={2}
                                                 >
-                                                    <div>
+                                                    <MKBox mb={2}>
                                                         <li style={{
                                                             textAlign: "center",
                                                             fontWeight: "bold",
@@ -214,9 +213,8 @@ function About() {
                                                             <li>Diferença de 201g a 250g: 1 ponto</li>
                                                             <li>Diferença acima de 250g: 0 pontos</li>
                                                         </ul>
-                                                    </div>
-                                                    <br />
-                                                    <div>
+                                                    </MKBox>
+                                                    <MKBox mb={2}>
                                                         <li style={{
                                                             textAlign: "center", 
                                                             fontWeight: "bold",
@@ -233,9 +231,8 @@ function About() {
                                                             <li>Diferença de até 3cm: 1 pontos</li>
                                                             <li>Acima de 3 cm: 0 pontos</li>
                                                         </ul>
-                                                    </div>
-                                                    <br />
-                                                    <div>
+                                                    </MKBox>
+                                                    <MKBox mb={2}>
                                                         <li style={{
                                                             textAlign: "center", 
                                                             fontWeight: "bold",
@@ -251,7 +248,7 @@ function About() {
                                                             <li>Até 1 dia: 1 ponto</li>
                                                             <li>Acima de 1 dia: 0 pontos</li>
                                                         </ul>
-                                                    </div>
+                                                    </MKBox>
 
                                                 </MKBox>
                                             </li >
