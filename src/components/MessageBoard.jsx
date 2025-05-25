@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Box, TextField, Button, Typography, Grid, Paper, Container } from "@mui/material";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+import "./MessageBoard.css";
 
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
@@ -112,10 +113,11 @@ function MessageBoard() {
                 </MKBox>
             </Box>
             <Box
+                className="always-show-scrollbar"
                 sx={{
                     mt: 3,
-                    height: 250,
-                    overflowY: "auto",
+                    height: 360,
+                    overflowY: "scroll",
                     bgcolor: "background.default",
                     borderRadius: 1,
                     boxShadow: 1,

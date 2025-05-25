@@ -1,0 +1,17 @@
+.always-show-scrollbar {
+    overflow-y: scroll !important;
+    scrollbar-width: thin;
+    /* For Firefox */
+}
+
+.always-show-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    background: #222;
+    display: block;
+
+}
+
+.always-show-scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
