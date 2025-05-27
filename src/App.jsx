@@ -21,6 +21,8 @@ import VerifyEmail from "./pages/VerifyEmail";
 import ResendEmail from "./pages/ResendEmail";
 import SendResetPasswordLink from "./pages/SendResetPasswordLink";
 import PasswordReset from "./pages/PasswordReset";
+import Messages from "./pages/Messages";
+import Admin from "./pages/Admin";
 
 import PrivateRoute from "./components/PrivateRoute";
 
@@ -50,7 +52,8 @@ function App() {
           <Route path="resend-email" element={<ResendEmail />} />
           <Route path="send-reset-password" element={<SendResetPasswordLink />} />
           <Route path="password-reset" element={<PasswordReset />} />
-
+          <Route path="messages" element={<Messages />} />
+          <Route path="admin" element={<Admin />} />
           <Route path="*" element={<h1>Página não encontrada</h1>} />
         </Routes>
       </ThemeProvider>

@@ -77,12 +77,9 @@ function SimpleFooter({ light }) {
     {
       name: "Recados",
       onClick: () => {
-        if (pathname !== "/") {
-          navigate("/#recados");
-        } else {
-          document.getElementById("recados").scrollIntoView({ behavior: "smooth" });
-        }
-      },
+        navigate("/messages");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     },
     { name: "Aposta", onClick: () => navigate("/bets") },
     { name: "Presentes", href: "https://chicobet.sumupstore.com/" }

@@ -52,9 +52,6 @@ function Prizes() {
                             <MKTypography variant="h3" color="dark.gradient">
                                 Prêmios
                             </MKTypography>
-                            {/* <MKTypography variant="body2" color="white" opacity={0.8}>
-                            Novidades da semana
-                        </MKTypography> */}
                         </Grid>
                     </Grid>
                 </Container>
@@ -78,7 +75,7 @@ function Prizes() {
                                                 alignItems: 'center',
                                                 height: '100%',
                                                 // mt: 1,
-                                                // mb: 2,
+                                                mb: 1,
                                             }}
                                         >
                                             <CenteredBlogCard2

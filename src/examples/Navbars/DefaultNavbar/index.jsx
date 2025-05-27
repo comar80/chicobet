@@ -134,16 +134,7 @@ function DefaultNavbar({ brand, transparent, light, action, sticky, relative, ce
         }
       },
     },
-    {
-      name: "Recados",
-      onClick: () => {
-        if (pathname !== "/") {
-          navigate("/#recados");
-        } else {
-          document.getElementById("recados").scrollIntoView({ behavior: "smooth" });
-        }
-      },
-    },
+    { name: "Recados", route: "/messages" },
     { name: "Aposta", route: "/bets" },
     {
       name: "Presentes",

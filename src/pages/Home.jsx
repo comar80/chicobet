@@ -129,9 +129,9 @@ function Home() {
                     <Prizes />
                 </div>
 
-                <div id="recados">
+                {/* <div id="recados">
                     <MessageBoard />
-                </div>
+                </div> */}
 
             </Card>
 
