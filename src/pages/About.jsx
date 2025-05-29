@@ -180,6 +180,7 @@ function About() {
                                                 mx: 2
                                             },
                                         })}
+                                        component="div"
                                     >
                                         <ul>
                                             <li>As apostas serão encerradas a caminho da maternidade </li>
@@ -191,17 +192,13 @@ function About() {
                                                     flexDirection={{ xs: "column", md: "column", lg: "row" }}
                                                     justifyContent="space-between"
                                                     alignItems={{ xs: "center", md: "center", lg: "flex-start" }}
-                                                    gap={{lg: 3}}
+                                                    gap={{ lg: 3 }}
                                                     mt={2}
                                                 >
                                                     <MKBox mb={2}>
-                                                        <li style={{
-                                                            textAlign: "center",
-                                                            fontWeight: "bold",
-                                                            listStyle: "none"
-                                                        }}>
+                                                        <strong style={{ display: "block", width: "100%", textAlign: "center" }}>
                                                             Peso (máximo de 5 pontos)
-                                                        </li>
+                                                        </strong>
                                                         <ul style={{
                                                             textAlign: "center",
                                                             listStyle: "none"
@@ -215,15 +212,11 @@ function About() {
                                                         </ul>
                                                     </MKBox>
                                                     <MKBox mb={2}>
-                                                        <li style={{
-                                                            textAlign: "center", 
-                                                            fontWeight: "bold",
-                                                            listStyle: "none"
-                                                        }}>
+                                                        <strong style={{ display: "block", width: "100%", textAlign: "center" }}>
                                                             Tamanho (0 a 3 pontos)
-                                                        </li>
+                                                        </strong>
                                                         <ul style={{
-                                                            textAlign: "center", 
+                                                            textAlign: "center",
                                                             listStyle: "none"
                                                         }}>
                                                             <li>Diferença de até 1cm: 3 pontos</li>
@@ -233,15 +226,11 @@ function About() {
                                                         </ul>
                                                     </MKBox>
                                                     <MKBox mb={2}>
-                                                        <li style={{
-                                                            textAlign: "center", 
-                                                            fontWeight: "bold",
-                                                            listStyle: "none"
-                                                        }}>
+                                                        <strong style={{ display: "block", width: "100%", textAlign: "center" }}>
                                                             Data de nascimento (0 a 2 pontos)
-                                                        </li>
+                                                        </strong>
                                                         <ul style={{
-                                                            textAlign: "center", 
+                                                            textAlign: "center",
                                                             listStyle: "none"
                                                         }}>
                                                             <li>Exato: 2 pontos</li>
@@ -249,7 +238,6 @@ function About() {
                                                             <li>Acima de 1 dia: 0 pontos</li>
                                                         </ul>
                                                     </MKBox>
-
                                                 </MKBox>
                                             </li >
                                             <li> Os três participantes que somarem mais pontos ganharão os prêmios de acordo com a colocação</li>
@@ -267,7 +255,7 @@ function About() {
             <MKBox width="100%" position="relative" zIndex={2} mt={3} mb={2}>
                 <SimpleFooter light />
             </MKBox>
-        </MKBox>
+        </MKBox >
     );
 }
 
