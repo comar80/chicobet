@@ -35,6 +35,9 @@ function Bets() {
     const [dataInput, setData] = useState("");
     const [sexoInput, setSexo] = useState("");
     const [isModalOpen, setModalOpen] = useState(false);
+    const [pesoTooltipOpen, setPesoTooltipOpen] = useState(false);
+    const [tamanhoTooltipOpen, setTamanhoTooltipOpen] = useState(false);
+    const [dataTooltipOpen, setDataTooltipOpen] = useState(false);
 
     const token = localStorage.getItem("token");
     const decodedToken = token ? jwtDecode(token) : null;
@@ -177,8 +180,10 @@ function Bets() {
                                                         <Tooltip
                                                             title="O peso normal de um recém-nascido varia entre 3000 e 4000 gramas"
                                                             placement="right"
-                                                            enterTouchDelay={0}
-                                                            leaveTouchDelay={3000}
+                                                            open={pesoTooltipOpen}
+                                                            disableFocusListener
+                                                            disableHoverListener
+                                                            disableTouchListener
                                                         >
 
                                                             <MKInput
@@ -189,6 +194,8 @@ function Bets() {
                                                                 fullWidth
                                                                 type="text"
                                                                 value={pesoInput}
+                                                                onFocus={() => setPesoTooltipOpen(true)}
+                                                                onBlur={() => setPesoTooltipOpen(false)}
                                                                 onChange={(e) => {
                                                                     const value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
                                                                     setPeso(value);
@@ -206,8 +213,10 @@ function Bets() {
                                                         <Tooltip
                                                             title="O tamanho normal de um recém-nascido varia entre 45 e 55 centímetros"
                                                             placement="right"
-                                                            enterTouchDelay={0}
-                                                            leaveTouchDelay={3000}
+                                                            open={tamanhoTooltipOpen}
+                                                            disableFocusListener
+                                                            disableHoverListener
+                                                            disableTouchListener
                                                         >
 
                                                             <MKInput
@@ -218,6 +227,8 @@ function Bets() {
                                                                 fullWidth
                                                                 type="text"
                                                                 value={tamanhoInput}
+                                                                onFocus={() => setTamanhoTooltipOpen(true)}
+                                                                onBlur={() => setTamanhoTooltipOpen(false)}
                                                                 onChange={(e) => {
                                                                     const value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
                                                                     setTamanho(value);
@@ -234,8 +245,10 @@ function Bets() {
                                                         <Tooltip
                                                             title="O Francisco completa 40 semanas no fim de Julho"
                                                             placement="right"
-                                                            enterTouchDelay={0}
-                                                            leaveTouchDelay={3000}
+                                                            open={dataTooltipOpen}
+                                                            disableFocusListener
+                                                            disableHoverListener
+                                                            disableTouchListener
                                                         >
                                                             <MKInput
                                                                 variant="standard"
@@ -245,6 +258,8 @@ function Bets() {
                                                                 fullWidth
                                                                 type="date"
                                                                 value={dataInput}
+                                                                onFocus={() => setDataTooltipOpen(true)}
+                                                                onBlur={() => setDataTooltipOpen(false)}
                                                                 onChange={(e) => setData(e.target.value)}
                                                                 required
                                                             />
