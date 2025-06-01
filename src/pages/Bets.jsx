@@ -179,11 +179,8 @@ function Bets() {
                                                         </MKTypography> */}
                                                         <Tooltip
                                                             title="O peso normal de um recém-nascido varia entre 3000 e 4000 gramas"
-                                                            placement="right"
-                                                            open={pesoTooltipOpen}
-                                                            disableFocusListener
-                                                            disableHoverListener
-                                                            disableTouchListener
+                                                            placement="top"
+                                                            open={pesoTooltipOpen ? true : undefined}
                                                         >
 
                                                             <MKInput
@@ -212,11 +209,8 @@ function Bets() {
                                                         </MKTypography> */}
                                                         <Tooltip
                                                             title="O tamanho normal de um recém-nascido varia entre 45 e 55 centímetros"
-                                                            placement="right"
-                                                            open={tamanhoTooltipOpen}
-                                                            disableFocusListener
-                                                            disableHoverListener
-                                                            disableTouchListener
+                                                            placement="top"
+                                                            open={tamanhoTooltipOpen ? true : undefined}
                                                         >
 
                                                             <MKInput
@@ -244,11 +238,8 @@ function Bets() {
                                                         </MKTypography> */}
                                                         <Tooltip
                                                             title="O Francisco completa 40 semanas no fim de Julho"
-                                                            placement="right"
-                                                            open={dataTooltipOpen}
-                                                            disableFocusListener
-                                                            disableHoverListener
-                                                            disableTouchListener
+                                                            placement="top"
+                                                            open={dataTooltipOpen ? true : undefined}
                                                         >
                                                             <MKInput
                                                                 variant="standard"
