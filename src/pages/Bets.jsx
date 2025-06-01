@@ -174,7 +174,12 @@ function Bets() {
                                                         {/* <MKTypography variant="body1" color="text" mb={2}>
                                                             <strong>Peso:</strong>
                                                         </MKTypography> */}
-                                                        <Tooltip title="O peso normal de um recém-nascido varia entre 3000 e 4000 gramas" placement="right">
+                                                        <Tooltip
+                                                            title="O peso normal de um recém-nascido varia entre 3000 e 4000 gramas"
+                                                            placement="right"
+                                                            enterTouchDelay={0}
+                                                            leaveTouchDelay={3000}
+                                                        >
 
                                                             <MKInput
                                                                 variant="standard"
@@ -198,7 +203,12 @@ function Bets() {
                                                         {/* <MKTypography variant="body1" color="text" mb={2}>
                                                             <strong>Tamanho:</strong>
                                                         </MKTypography> */}
-                                                        <Tooltip title="O tamanho normal de um recém-nascido varia entre 45 e 55 centímetros" placement="right">
+                                                        <Tooltip
+                                                            title="O tamanho normal de um recém-nascido varia entre 45 e 55 centímetros"
+                                                            placement="right"
+                                                            enterTouchDelay={0}
+                                                            leaveTouchDelay={3000}
+                                                        >
 
                                                             <MKInput
                                                                 variant="standard"
@@ -221,7 +231,12 @@ function Bets() {
                                                         {/* <MKTypography variant="body1" color="text" mb={2}>
                                                             <strong>Data:</strong>
                                                         </MKTypography> */}
-                                                        <Tooltip title="O Francisco completa 40 semanas no fim de Julho" placement="right">
+                                                        <Tooltip
+                                                            title="O Francisco completa 40 semanas no fim de Julho"
+                                                            placement="right"
+                                                            enterTouchDelay={0}
+                                                            leaveTouchDelay={3000}
+                                                        >
                                                             <MKInput
                                                                 variant="standard"
                                                                 label="Data:"
