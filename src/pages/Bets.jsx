@@ -180,7 +180,10 @@ function Bets() {
                                                         <Tooltip
                                                             title="O peso normal de um recém-nascido varia entre 3000 e 4000 gramas"
                                                             placement="top"
-                                                            open={pesoTooltipOpen ? true : undefined}
+                                                            open={pesoTooltipOpen}
+                                                            disableFocusListener
+                                                            disableHoverListener
+                                                            disableTouchListener
                                                         >
 
                                                             <MKInput
@@ -210,7 +213,10 @@ function Bets() {
                                                         <Tooltip
                                                             title="O tamanho normal de um recém-nascido varia entre 45 e 55 centímetros"
                                                             placement="top"
-                                                            open={tamanhoTooltipOpen ? true : undefined}
+                                                            open={tamanhoTooltipOpen}
+                                                            disableFocusListener
+                                                            disableHoverListener
+                                                            disableTouchListener
                                                         >
 
                                                             <MKInput
@@ -239,7 +245,10 @@ function Bets() {
                                                         <Tooltip
                                                             title="O Francisco completa 40 semanas no fim de Julho"
                                                             placement="top"
-                                                            open={dataTooltipOpen ? true : undefined}
+                                                            open={dataTooltipOpen}
+                                                            disableFocusListener
+                                                            disableHoverListener
+                                                            disableTouchListener
                                                         >
                                                             <MKInput
                                                                 variant="standard"
