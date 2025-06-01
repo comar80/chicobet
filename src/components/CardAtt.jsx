@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import getCardsJson from "../services/getCardsJson";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation } from 'swiper/modules';
@@ -41,6 +42,8 @@ function CardAtt() {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const BasicModal = () => (
         <div>
@@ -200,6 +203,23 @@ function CardAtt() {
                                 </MKBox>
                             )}
 
+                            <MKTypography
+                                variant="body2"
+                                color="info.main"
+                                sx={{wordBreak: "break-all", textAlign: "center" }}
+                            >
+                                <MKButton
+                                    color="info"
+                                    size="small"
+                                    sx={{ mt: 1 }}
+                                    onClick={() => {
+                                        navigator.clipboard.writeText(getCardUrl(selectedCard.id));
+                                    }}
+                                >
+                                    Copiar link
+                                </MKButton>
+                            </MKTypography>
+
                             <button className="close-modal-card" onClick={closeModal}>
                                 &#10005;
                             </button>
@@ -211,6 +231,19 @@ function CardAtt() {
     );
 
     const [isNavigationEnabled, setIsNavigationEnabled] = useState(false);
+
+    useEffect(() => {
+        if (cards.length === 0) return;
+        const params = new URLSearchParams(location.search);
+        const cardId = params.get("id");
+        if (cardId) {
+            const idx = cards.findIndex(card => String(card.id) === String(cardId));
+            if (idx !== -1) {
+                handleCardClick(idx, true); // true = fromURL
+            }
+        }
+        // eslint-disable-next-line
+    }, [cards, location.search]);
 
 
     useEffect(() => {
@@ -233,11 +266,15 @@ function CardAtt() {
         };
     }, []);
 
-    const handleCardClick = (index) => {
+    const handleCardClick = (index, fromURL = false) => {
 
         const card = cards[index];
         setSelectedCard(card);
         handleOpen();
+        if (!fromURL) {
+            // Use location.pathname to preserve the hash route
+            navigate(`${location.pathname}?id=${card.id}`, { replace: false });
+        }
 
         if (card.images && card.images.length > 0) {
             const formattedImages = card.images.map((url) => {
@@ -254,6 +291,12 @@ function CardAtt() {
     const closeModal = () => {
         setSelectedCard(null);
         setModalImages([]);
+        navigate(location.pathname, { replace: false });
+
+    };
+
+    const getCardUrl = (cardId) => {
+        return `${window.location.origin}${window.location.pathname}#${location.pathname}?id=${cardId}`;
     };
 
     return (
