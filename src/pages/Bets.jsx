@@ -174,7 +174,7 @@ function Bets() {
                                                     height="100%">
 
 
-                                                    <Grid size={{ xs: 6, md: 4 }} pr={1} mt={3} mb={6}>
+                                                    <Grid size={{ xs: 8, md: 6, lg: 5}} pr={1} mt={3} mb={6}>
 
                                                         {/* <MKTypography variant="body1" color="text" mb={2}>
                                                             <strong>Peso:</strong>
@@ -217,12 +217,12 @@ function Bets() {
                                                         </Box>
                                                     </Grid>
 
-                                                    <Grid size={{ xs: 6, md: 4 }} pr={1} mb={6}>
+                                                    <Grid size={{ xs: 8, md: 6, lg: 5}} pr={1} mb={6}>
 
                                                         {/* <MKTypography variant="body1" color="text" mb={2}>
                                                             <strong>Tamanho:</strong>
                                                         </MKTypography> */}
-                                                        <Box display="flex" alignItems="center">
+                                                        <Box display="flex" alignItems="center" >
                                                             <MKInput
                                                                 variant="standard"
                                                                 label="Tamanho (em cm)"
@@ -258,7 +258,7 @@ function Bets() {
                                                             </ClickAwayListener>
                                                         </Box>
                                                     </Grid>
-                                                    <Grid size={{ xs: 6, md: 4 }} pr={1} mb={6}>
+                                                    <Grid size={{ xs: 8, md: 6, lg: 5}} pr={1} mb={6}>
 
                                                         {/* <MKTypography variant="body1" color="text" mb={2}>
                                                             <strong>Data:</strong>
@@ -297,7 +297,7 @@ function Bets() {
                                                         </Box>
                                                     </Grid>
 
-                                                    <Grid size={{ xs: 6, md: 4 }} pr={1} mb={6}>
+                                                    <Grid size={{ xs: 8, md: 6, lg: 5}} pr={1} mb={6}>
 
                                                         {/* <MKTypography variant="body1" color="text" mb={2}>
                                                             <strong>Sexo:</strong>
