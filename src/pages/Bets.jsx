@@ -13,6 +13,8 @@ import FormControl from '@mui/material/FormControl';
 import Tooltip from "@mui/material/Tooltip";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import ClickAwayListener from "@mui/material/ClickAwayListener";
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
@@ -177,15 +179,8 @@ function Bets() {
                                                         {/* <MKTypography variant="body1" color="text" mb={2}>
                                                             <strong>Peso:</strong>
                                                         </MKTypography> */}
-                                                        <Tooltip
-                                                            title="O peso normal de um recém-nascido varia entre 3000 e 4000 gramas"
-                                                            placement="top"
-                                                            open={pesoTooltipOpen}
-                                                            disableFocusListener
-                                                            disableHoverListener
-                                                            disableTouchListener
-                                                        >
 
+                                                        <Box display="flex" alignItems="center">
                                                             <MKInput
                                                                 variant="standard"
                                                                 label="Peso (em g)"
@@ -194,15 +189,32 @@ function Bets() {
                                                                 fullWidth
                                                                 type="text"
                                                                 value={pesoInput}
-                                                                onFocus={() => setPesoTooltipOpen(true)}
-                                                                onBlur={() => setPesoTooltipOpen(false)}
                                                                 onChange={(e) => {
-                                                                    const value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+                                                                    const value = e.target.value.replace(/\D/g, "");
                                                                     setPeso(value);
                                                                 }}
                                                                 required
                                                             />
-                                                        </Tooltip>
+                                                            <ClickAwayListener onClickAway={() => setPesoTooltipOpen(false)}>
+                                                                <div>
+                                                                    <Tooltip
+                                                                        title="O peso médio de um recém-nascido varia entre 3000 e 4000 gramas"
+                                                                        placement="top"
+                                                                        open={pesoTooltipOpen}
+                                                                        disableFocusListener
+                                                                        disableHoverListener
+                                                                        disableTouchListener
+                                                                    >
+                                                                        <span
+                                                                            style={{ cursor: "pointer", marginLeft: 8 }}
+                                                                            onClick={() => setPesoTooltipOpen((open) => !open)}
+                                                                        >
+                                                                            <InfoOutlinedIcon color="action" fontSize="small" />
+                                                                        </span>
+                                                                    </Tooltip>
+                                                                </div>
+                                                            </ClickAwayListener>
+                                                        </Box>
                                                     </Grid>
 
                                                     <Grid size={{ xs: 6, md: 4 }} pr={1} mb={6}>
@@ -210,15 +222,7 @@ function Bets() {
                                                         {/* <MKTypography variant="body1" color="text" mb={2}>
                                                             <strong>Tamanho:</strong>
                                                         </MKTypography> */}
-                                                        <Tooltip
-                                                            title="O tamanho normal de um recém-nascido varia entre 45 e 55 centímetros"
-                                                            placement="top"
-                                                            open={tamanhoTooltipOpen}
-                                                            disableFocusListener
-                                                            disableHoverListener
-                                                            disableTouchListener
-                                                        >
-
+                                                        <Box display="flex" alignItems="center">
                                                             <MKInput
                                                                 variant="standard"
                                                                 label="Tamanho (em cm)"
@@ -227,29 +231,39 @@ function Bets() {
                                                                 fullWidth
                                                                 type="text"
                                                                 value={tamanhoInput}
-                                                                onFocus={() => setTamanhoTooltipOpen(true)}
-                                                                onBlur={() => setTamanhoTooltipOpen(false)}
                                                                 onChange={(e) => {
                                                                     const value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
                                                                     setTamanho(value);
                                                                 }}
                                                                 required
                                                             />
-                                                        </Tooltip>
+                                                            <ClickAwayListener onClickAway={() => setTamanhoTooltipOpen(false)}>
+                                                                <div>
+                                                                    <Tooltip
+                                                                        title="O tamanho médio de um recém-nascido varia entre 45 e 55 centímetros"
+                                                                        placement="top"
+                                                                        open={tamanhoTooltipOpen}
+                                                                        disableFocusListener
+                                                                        disableHoverListener
+                                                                        disableTouchListener
+                                                                    >
+                                                                        <span
+                                                                            style={{ cursor: "pointer", marginLeft: 8 }}
+                                                                            onClick={() => setTamanhoTooltipOpen((open) => !open)}
+                                                                        >
+                                                                            <InfoOutlinedIcon color="action" fontSize="small" />
+                                                                        </span>
+                                                                    </Tooltip>
+                                                                </div>
+                                                            </ClickAwayListener>
+                                                        </Box>
                                                     </Grid>
                                                     <Grid size={{ xs: 6, md: 4 }} pr={1} mb={6}>
 
                                                         {/* <MKTypography variant="body1" color="text" mb={2}>
                                                             <strong>Data:</strong>
                                                         </MKTypography> */}
-                                                        <Tooltip
-                                                            title="O Francisco completa 40 semanas no fim de Julho"
-                                                            placement="top"
-                                                            open={dataTooltipOpen}
-                                                            disableFocusListener
-                                                            disableHoverListener
-                                                            disableTouchListener
-                                                        >
+                                                        <Box display="flex" alignItems="center">
                                                             <MKInput
                                                                 variant="standard"
                                                                 label="Data:"
@@ -258,12 +272,29 @@ function Bets() {
                                                                 fullWidth
                                                                 type="date"
                                                                 value={dataInput}
-                                                                onFocus={() => setDataTooltipOpen(true)}
-                                                                onBlur={() => setDataTooltipOpen(false)}
                                                                 onChange={(e) => setData(e.target.value)}
                                                                 required
                                                             />
-                                                        </Tooltip >
+                                                            <ClickAwayListener onClickAway={() => setDataTooltipOpen(false)}>
+                                                                <div>
+                                                                    <Tooltip
+                                                                        title="O Francisco completa 40 semanas no fim de Julho"
+                                                                        placement="top"
+                                                                        open={dataTooltipOpen}
+                                                                        disableFocusListener
+                                                                        disableHoverListener
+                                                                        disableTouchListener
+                                                                    >
+                                                                        <span
+                                                                            style={{ cursor: "pointer", marginLeft: 8 }}
+                                                                            onClick={() => setDataTooltipOpen((open) => !open)}
+                                                                        >
+                                                                            <InfoOutlinedIcon color="action" fontSize="small" />
+                                                                        </span>
+                                                                    </Tooltip>
+                                                                </div>
+                                                            </ClickAwayListener>
+                                                        </Box>
                                                     </Grid>
 
                                                     <Grid size={{ xs: 6, md: 4 }} pr={1} mb={6}>
