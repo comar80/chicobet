@@ -24,6 +24,8 @@ import SendResetPasswordLink from "./pages/SendResetPasswordLink";
 import PasswordReset from "./pages/PasswordReset";
 import Messages from "./pages/Messages";
 import Admin from "./pages/Admin";
+import Ranking from "./pages/Ranking";
+
 
 import PrivateRoute from "./components/PrivateRoute";
 
@@ -55,6 +57,7 @@ function App() {
           <Route path="password-reset" element={<PasswordReset />} />
           <Route path="messages" element={<Messages />} />
           <Route path="admin" element={<Admin />} />
+          <Route path="ranking" element={<Ranking />} />
           <Route path="*" element={<h1>Página não encontrada</h1>} />
         </Routes>
       </ThemeProvider>

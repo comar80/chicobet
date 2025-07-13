@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
 
 // @mui material components
 import Container from "@mui/material/Container";
@@ -156,6 +158,7 @@ function SubmittedForm() {
                                                                         <strong>Sexo:</strong> {betData.gender}
                                                                     </MKTypography>}
                                                             </Grid>
+
                                                         </>
                                                     ) : (
                                                         <Grid xs={12} pr={1} mb={6}>
@@ -163,7 +166,15 @@ function SubmittedForm() {
                                                                 Carregando seus dados...
                                                             </MKTypography>
                                                         </Grid>
+
                                                     )}
+                                                    <MKButton
+                                                        variant="outlined"
+                                                        color="dark"
+                                                        component={Link}
+                                                        to="/ranking">
+                                                        Resultado
+                                                    </MKButton>
                                                 </Grid>
                                                 {/* <Grid
                                                     container

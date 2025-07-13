@@ -2,23 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
+import { Link } from "react-router-dom";
+
 
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import Select from '@mui/material/Select';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Tooltip from "@mui/material/Tooltip";
-import Modal from "@mui/material/Modal";
-import Box from "@mui/material/Box";
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import ClickAwayListener from "@mui/material/ClickAwayListener";
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
-import MKInput from "components/MKInput";
 import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 
@@ -32,11 +24,11 @@ function BetsEnd() {
 
     const navigate = useNavigate();
 
-    const [pesoInput, setPeso] = useState("");
-    const [tamanhoInput, setTamanho] = useState("");
-    const [dataInput, setData] = useState("");
-    const [sexoInput, setSexo] = useState("");
-    const [isModalOpen, setModalOpen] = useState(false);
+    // const [pesoInput, setPeso] = useState("");
+    // const [tamanhoInput, setTamanho] = useState("");
+    // const [dataInput, setData] = useState("");
+    // const [sexoInput, setSexo] = useState("");
+    // const [isModalOpen, setModalOpen] = useState(false);
 
 
     const token = localStorage.getItem("token");
@@ -68,39 +60,39 @@ function BetsEnd() {
         fetchBet();
     }, [navigate, token, API_URL]);
 
-    const handleSubmit = async () => {
-        const betData = { weight: pesoInput, size: tamanhoInput, date: dataInput, gender: sexoInput, userId: userId };
+    // const handleSubmit = async () => {
+    //     const betData = { weight: pesoInput, size: tamanhoInput, date: dataInput, gender: sexoInput, userId: userId };
 
-        try {
-            const response = await axios.post(`${API_URL}/bets`, betData, {
-                headers: {
-                    "Authorization": `Bearer ${token}`,
-                    "Content-Type": "application/json"
-                },
-            });
+    //     try {
+    //         const response = await axios.post(`${API_URL}/bets`, betData, {
+    //             headers: {
+    //                 "Authorization": `Bearer ${token}`,
+    //                 "Content-Type": "application/json"
+    //             },
+    //         });
 
-            console.log("Bet saved:", response.data);
-            navigate("/success", { state: { message: "Aposta concluída!" } });
+    //         console.log("Bet saved:", response.data);
+    //         navigate("/success", { state: { message: "Aposta concluída!" } });
 
-        } catch (error) {
-            console.error("Erro ao enviar aposta:", error.response?.data || error.message);
-            alert("Falha ao salvar aposta.");
-        }
-    };
+    //     } catch (error) {
+    //         console.error("Erro ao enviar aposta:", error.response?.data || error.message);
+    //         alert("Falha ao salvar aposta.");
+    //     }
+    // };
 
-    const handleConfirm = () => {
-        setModalOpen(false);
-        handleSubmit();
-    };
+    // const handleConfirm = () => {
+    //     setModalOpen(false);
+    //     handleSubmit();
+    // };
 
-    const handleOpenModal = (e) => {
-        e.preventDefault();
-        setModalOpen(true);
-    };
+    // const handleOpenModal = (e) => {
+    //     e.preventDefault();
+    //     setModalOpen(true);
+    // };
 
-    const handleCloseModal = () => {
-        setModalOpen(false);
-    };
+    // const handleCloseModal = () => {
+    //     setModalOpen(false);
+    // };
 
     return (
         <>
@@ -156,9 +148,28 @@ function BetsEnd() {
                                         </MKBox>
                                     </Grid>
                                     <Grid size={{ xs: 12, lg: 7 }}>
-                                        <MKTypography variant="h3" color="black" m={1}>
-                                            Apostas encerradas
-                                        </MKTypography>
+                                        <MKBox 
+                                        display="flex" 
+                                        justifyContent="center" 
+                                        alignItems="center" 
+                                        height="100%" 
+                                        flexDirection="column"
+                                        sx={{ p: 3 }}
+                                        >
+                                            <MKTypography variant="h3" color="black" m={1}>
+                                                Apostas encerradas
+                                            </MKTypography>
+                                            <MKTypography variant="body1" color="black" opacity={0.8} mt={1} mb={3}>
+                                                Descubra os vencedores no link abaixo!
+                                            </MKTypography>
+                                            <MKButton
+                                                variant="outlined"
+                                                color="dark"
+                                                component={Link}
+                                                to="/ranking">
+                                                Resultado
+                                            </MKButton>
+                                        </MKBox>
                                     </Grid>
                                 </Grid>
                             </MKBox>

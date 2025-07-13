@@ -1,7 +1,9 @@
 [
   {
     "Ranking": 1,
+    "UserId": 68,
     "Nome": "Juliana Frias Pinheiro ",
+    "BetId": 17,
     "Peso": 3350,
     "Tamanho": 47,
     "DataNascimento": "2025-07-18",
@@ -10,7 +12,9 @@
   },
   {
     "Ranking": 2,
+    "UserId": 93,
     "Nome": "Rodrigo Ribeiro ",
+    "BetId": 36,
     "Peso": 3350,
     "Tamanho": 46,
     "DataNascimento": "2025-07-16",
@@ -19,7 +23,9 @@
   },
   {
     "Ranking": 3,
+    "UserId": 60,
     "Nome": "luiza manzini",
+    "BetId": 11,
     "Peso": 3280,
     "Tamanho": 48,
     "DataNascimento": "2025-07-30",
@@ -28,7 +34,9 @@
   },
   {
     "Ranking": 4,
+    "UserId": 62,
     "Nome": "Guilherme Parreiras de Paula Dias",
+    "BetId": 13,
     "Peso": 3150,
     "Tamanho": 48,
     "DataNascimento": "2025-07-16",
@@ -37,7 +45,9 @@
   },
   {
     "Ranking": 5,
+    "UserId": 77,
     "Nome": "Danilo Castro Dutra",
+    "BetId": 22,
     "Peso": 2970,
     "Tamanho": 27,
     "DataNascimento": "2025-07-25",
@@ -46,7 +56,9 @@
   },
   {
     "Ranking": 6,
+    "UserId": 92,
     "Nome": "Camila Ferreira Pacheco",
+    "BetId": 35,
     "Peso": 3328,
     "Tamanho": 48,
     "DataNascimento": "2025-07-24",
@@ -55,7 +67,9 @@
   },
   {
     "Ranking": 7,
+    "UserId": 67,
     "Nome": "Augusto Denis Esteves",
+    "BetId": 42,
     "Peso": 3557,
     "Tamanho": 48,
     "DataNascimento": "2025-08-01",
@@ -64,7 +78,9 @@
   },
   {
     "Ranking": 8,
+    "UserId": 55,
     "Nome": "Vovó Dê",
+    "BetId": 7,
     "Peso": 3180,
     "Tamanho": 49,
     "DataNascimento": "2025-07-27",
@@ -73,7 +89,9 @@
   },
   {
     "Ranking": 9,
+    "UserId": 61,
     "Nome": "Beatriz Denis Esteves",
+    "BetId": 12,
     "Peso": 3554,
     "Tamanho": 49,
     "DataNascimento": "2025-07-28",
@@ -82,7 +100,9 @@
   },
   {
     "Ranking": 10,
+    "UserId": 64,
     "Nome": "Claudia Boatini",
+    "BetId": 14,
     "Peso": 3250,
     "Tamanho": 49,
     "DataNascimento": "2025-07-12",
@@ -91,7 +111,9 @@
   },
   {
     "Ranking": 11,
+    "UserId": 66,
     "Nome": "Sandra Morganti",
+    "BetId": 16,
     "Peso": 3250,
     "Tamanho": 49,
     "DataNascimento": "2025-07-23",
@@ -100,7 +122,9 @@
   },
   {
     "Ranking": 12,
+    "UserId": 78,
     "Nome": "Heloisa Frias Pinheiro",
+    "BetId": 23,
     "Peso": 3152,
     "Tamanho": 49,
     "DataNascimento": "2025-07-22",
@@ -109,7 +133,9 @@
   },
   {
     "Ranking": 13,
+    "UserId": 84,
     "Nome": "Vitor Zanirato",
+    "BetId": 27,
     "Peso": 3400,
     "Tamanho": 49,
     "DataNascimento": "2025-07-12",
@@ -118,7 +144,9 @@
   },
   {
     "Ranking": 14,
+    "UserId": 85,
     "Nome": "Victor Di Sessa",
+    "BetId": 28,
     "Peso": 3327,
     "Tamanho": 49,
     "DataNascimento": "2025-07-21",
@@ -127,7 +155,9 @@
   },
   {
     "Ranking": 15,
+    "UserId": 69,
     "Nome": "Livia Trevisan Montozaa",
+    "BetId": 44,
     "Peso": 3150,
     "Tamanho": 49,
     "DataNascimento": "2025-07-13",
@@ -136,7 +166,9 @@
   },
   {
     "Ranking": 16,
+    "UserId": 57,
     "Nome": "Carolina Nannini",
+    "BetId": 8,
     "Peso": 4200,
     "Tamanho": 51,
     "DataNascimento": "2025-07-24",
@@ -145,7 +177,9 @@
   },
   {
     "Ranking": 17,
+    "UserId": 58,
     "Nome": "Ornella Guarnier Cardin Farias ",
+    "BetId": 9,
     "Peso": 3900,
     "Tamanho": 51,
     "DataNascimento": "2025-07-30",
@@ -154,7 +188,9 @@
   },
   {
     "Ranking": 18,
+    "UserId": 59,
     "Nome": "Rodrigo Marques Martins",
+    "BetId": 10,
     "Peso": 3900,
     "Tamanho": 50,
     "DataNascimento": "2025-08-08",
@@ -163,7 +199,9 @@
   },
   {
     "Ranking": 19,
+    "UserId": 65,
     "Nome": "Carlos Eduardo pires ",
+    "BetId": 15,
     "Peso": 3468,
     "Tamanho": 52,
     "DataNascimento": "2025-07-29",
@@ -172,7 +210,9 @@
   },
   {
     "Ranking": 20,
+    "UserId": 56,
     "Nome": "Lívia mãe do Juca",
+    "BetId": 18,
     "Peso": 3500,
     "Tamanho": 52,
     "DataNascimento": "2025-07-29",
@@ -181,7 +221,9 @@
   },
   {
     "Ranking": 21,
+    "UserId": 71,
     "Nome": "Thiago Fukuda",
+    "BetId": 19,
     "Peso": 3600,
     "Tamanho": 51,
     "DataNascimento": "2025-08-04",
@@ -190,7 +232,9 @@
   },
   {
     "Ranking": 22,
+    "UserId": 72,
     "Nome": "Ana Beatriz Cacace",
+    "BetId": 20,
     "Peso": 3800,
     "Tamanho": 51,
     "DataNascimento": "2025-07-20",
@@ -199,7 +243,9 @@
   },
   {
     "Ranking": 23,
+    "UserId": 75,
     "Nome": "Valéria Frias",
+    "BetId": 21,
     "Peso": 3170,
     "Tamanho": 51,
     "DataNascimento": "2025-07-24",
@@ -208,7 +254,9 @@
   },
   {
     "Ranking": 24,
+    "UserId": 79,
     "Nome": "Elson Rocha",
+    "BetId": 24,
     "Peso": 3500,
     "Tamanho": 50,
     "DataNascimento": "2025-07-21",
@@ -217,7 +265,9 @@
   },
   {
     "Ranking": 25,
+    "UserId": 80,
     "Nome": "Vitor Portescheller",
+    "BetId": 25,
     "Peso": 3077,
     "Tamanho": 51,
     "DataNascimento": "2025-07-14",
@@ -226,7 +276,9 @@
   },
   {
     "Ranking": 26,
+    "UserId": 82,
     "Nome": "Ernani da Silva Bianchi ",
+    "BetId": 26,
     "Peso": 3800,
     "Tamanho": 52,
     "DataNascimento": "2025-07-18",
@@ -235,7 +287,9 @@
   },
   {
     "Ranking": 27,
+    "UserId": 87,
     "Nome": "GBZ",
+    "BetId": 29,
     "Peso": 3500,
     "Tamanho": 50,
     "DataNascimento": "2025-07-23",
@@ -244,7 +298,9 @@
   },
   {
     "Ranking": 28,
+    "UserId": 70,
     "Nome": "Rafaela Frias",
+    "BetId": 30,
     "Peso": 3750,
     "Tamanho": 52,
     "DataNascimento": "2025-07-25",
@@ -253,7 +309,9 @@
   },
   {
     "Ranking": 29,
+    "UserId": 88,
     "Nome": "Vinicius Paulino dos Santos ",
+    "BetId": 31,
     "Peso": 3800,
     "Tamanho": 53,
     "DataNascimento": "2025-07-27",
@@ -262,7 +320,9 @@
   },
   {
     "Ranking": 30,
+    "UserId": 89,
     "Nome": "Thays bittar ",
+    "BetId": 32,
     "Peso": 3590,
     "Tamanho": 51,
     "DataNascimento": "2025-07-28",
@@ -271,7 +331,9 @@
   },
   {
     "Ranking": 31,
+    "UserId": 90,
     "Nome": "Luiz Ortega",
+    "BetId": 33,
     "Peso": 4000,
     "Tamanho": 52,
     "DataNascimento": "2025-07-15",
@@ -280,7 +342,9 @@
   },
   {
     "Ranking": 32,
+    "UserId": 91,
     "Nome": "Lucas Serrano",
+    "BetId": 34,
     "Peso": 3322,
     "Tamanho": 52,
     "DataNascimento": "2025-07-21",
@@ -289,7 +353,9 @@
   },
   {
     "Ranking": 33,
+    "UserId": 94,
     "Nome": "Paulo Cesar Gadioli",
+    "BetId": 37,
     "Peso": 3954,
     "Tamanho": 53,
     "DataNascimento": "2025-07-27",
@@ -298,7 +364,9 @@
   },
   {
     "Ranking": 34,
+    "UserId": 95,
     "Nome": "Fernanda Melino",
+    "BetId": 38,
     "Peso": 3470,
     "Tamanho": 50,
     "DataNascimento": "2025-07-30",
@@ -307,7 +375,9 @@
   },
   {
     "Ranking": 35,
+    "UserId": 96,
     "Nome": "Guilherme Melo Frias",
+    "BetId": 39,
     "Peso": 3250,
     "Tamanho": 51,
     "DataNascimento": "2025-07-15",
@@ -316,7 +386,9 @@
   },
   {
     "Ranking": 36,
+    "UserId": 97,
     "Nome": "Paulo Dias",
+    "BetId": 40,
     "Peso": 3850,
     "Tamanho": 51,
     "DataNascimento": "2025-07-11",
@@ -325,7 +397,9 @@
   },
   {
     "Ranking": 37,
+    "UserId": 98,
     "Nome": "Julio Frias Dias",
+    "BetId": 41,
     "Peso": 3485,
     "Tamanho": 51,
     "DataNascimento": "2025-07-10",
@@ -334,7 +408,9 @@
   },
   {
     "Ranking": 38,
+    "UserId": 100,
     "Nome": "Pedro Henrique Frias Pinheiro",
+    "BetId": 43,
     "Peso": 3348,
     "Tamanho": 52,
     "DataNascimento": "2025-07-13",

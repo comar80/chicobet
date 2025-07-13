@@ -21,11 +21,11 @@ import bgImage from "assets/images/babybet-bg1.jpg";
 
 function Home() {
     const { hash } = useLocation();
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
-        const user = localStorage.getItem("token");
-        setIsLoggedIn(!!user);
+        // const user = localStorage.getItem("token");
+        // setIsLoggedIn(!!user);
 
         if (hash) {
             const element = document.getElementById(hash.replace("#", ""));
@@ -82,12 +82,20 @@ function Home() {
                             Bem vindo à ChicoBet
                         </MKTypography>
                         <MKTypography variant="body1" color="light" opacity={0.8} mt={1} mb={3}>
-                            Um jeito divertido de acompanhar o crescimento do Francisco com a gente! <br />
-                            {isLoggedIn
+                            O Chico chegou de surpresa e derrubou todo mundo no ranking! <br />
+                            Descubra os vencedores no link abaixo!
+                            {/* {isLoggedIn
                                 ? "Aproveite as novidades e aposte para concorrer aos prêmios!"
-                                : "Para apostar e concorrer aos prêmios faça o login ou crie uma conta."}
+                                : "Para apostar e concorrer aos prêmios faça o login ou crie uma conta."} */}
                         </MKTypography>
-                        {!isLoggedIn && (
+                        <MKButton
+                                variant="outlined"
+                                color="light"
+                                component={Link}
+                                to="/ranking">
+                                Resultado
+                            </MKButton>
+                        {/* {!isLoggedIn && (
                             <MKButton
                                 variant="outlined"
                                 color="light"
@@ -105,7 +113,7 @@ function Home() {
                             >
                                 Apostar
                             </MKButton>
-                        )}
+                        )} */}
                     </Grid>
                 </Container>
             </MKBox>
