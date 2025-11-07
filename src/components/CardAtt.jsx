@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import getCardsJson from "../services/getCardsJson";
+// import getCardsJson from "../services/getCardsJson";
+import cardsLocal from "../assets/cards_local.json";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -206,7 +207,7 @@ function CardAtt() {
                             <MKTypography
                                 variant="body2"
                                 color="info.main"
-                                sx={{wordBreak: "break-all", textAlign: "center" }}
+                                sx={{ wordBreak: "break-all", textAlign: "center" }}
                             >
                                 <MKButton
                                     color="info"
@@ -247,12 +248,9 @@ function CardAtt() {
 
 
     useEffect(() => {
-        getCardsJson().then(data => {
-            if (data) {
-                setCards(data);
-            }
-        });
-
+        if (cardsLocal) {
+            setCards([...cardsLocal].reverse());
+        }
 
         const updateNavigation = () => {
             setIsNavigationEnabled(window.innerWidth >= 900);

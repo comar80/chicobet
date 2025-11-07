@@ -48,10 +48,10 @@ function Bets() {
     const API_URL = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
-        if (!token) {
-            navigate("/login", { state: { showToast: true } });
-            return;
-        }
+        // if (!token) {
+        //     navigate("/login", { state: { showToast: true } });
+        //     return;
+        // }
 
         const fetchBet = async () => {
             try {

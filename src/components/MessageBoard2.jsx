@@ -3,6 +3,7 @@ import { Box, TextField, Button, Typography, Grid, Paper, Container, Card } from
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "./MessageBoard.css";
+import messagesData from "../assets/messages.json";
 
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
@@ -18,19 +19,9 @@ function MessageBoard() {
     const API_URL = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
-        const fetchMessages = async () => {
-            try {
-                setLoading(true);
-                const res = await axios.get(`${API_URL}/messages`);
-                setMessages(res.data);
-            } catch (error) {
-                console.error("Erro ao ler mensagens:", error);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchMessages();
-    }, [API_URL]);
+                setMessages(messagesData.reverse());
+
+    }, []);
 
 
     const handleSubmit = async (e) => {
@@ -79,7 +70,7 @@ function MessageBoard() {
                 borderRadius: 2,
             })}
         >
-            <Container>
+            {/* <Container>
                 <Grid container>
                     <Grid size={{ xs: 12, md: 8 }} sx={{ mb: 2, mt: 2 }}>
                         <MKTypography
@@ -121,7 +112,7 @@ function MessageBoard() {
                         </MKButton>
                     </MKBox>
                 </MKBox>
-            </Box>
+            </Box> */}
             <Box
                 className="always-show-scrollbar"
                 sx={{

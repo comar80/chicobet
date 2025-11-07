@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import getDriveImages from "../services/getDriveImages";
-import getCloudinaryImages from "../services/getCloudinaryImages";
+// import getCloudinaryImages from "../services/getCloudinaryImages";
 
 
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -16,11 +16,13 @@ function Carousel() {
 
 
     useEffect(() => {
-        getCloudinaryImages().then(data => {
-            if (data) {
-                setPhotos(data);
-            }
+        const modules = import.meta.glob('../assets/images/Carrossel/*.{jpg,jpeg,png,webp}', { eager: true });
+        const loaded = Object.keys(modules).map((key) => {
+            const mod = modules[key];
+            const url = (mod && (mod.default ?? mod)) || key;
+            return { url, alt: key.split('/').pop() };
         });
+        if (loaded.length) setPhotos(loaded);
 
         const updateNavigation = () => {
             setIsNavigationEnabled(window.innerWidth >= 900);

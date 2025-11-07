@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { jwtDecode } from "jwt-decode";
+// import { jwtDecode } from "jwt-decode";
 import { Link } from "react-router-dom";
 
 
@@ -32,16 +32,16 @@ function BetsEnd() {
 
 
     const token = localStorage.getItem("token");
-    const decodedToken = token ? jwtDecode(token) : null;
-    const userId = decodedToken?.userId;
+    // const decodedToken = token ? jwtDecode(token) : null;
+    // const userId = decodedToken?.userId;
 
     const API_URL = import.meta.env.VITE_API_URL;
 
     useEffect(() => {
-        if (!token) {
-            navigate("/login", { state: { showToast: true } });
-            return;
-        }
+        // if (!token) {
+        //     navigate("/login", { state: { showToast: true } });
+        //     return;
+        // }
 
         const fetchBet = async () => {
             try {
